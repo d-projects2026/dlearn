@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="description" content="Get in touch with D. Learn. Suggest topics, report issues, or explore collaborations.">
+<meta name="theme-color" content="#0D9488">
+<meta property="og:title" content="Reach Out | D. Learn">
+<meta property="og:description" content="Get in touch with D. Learn. Suggest topics, report issues, or explore collaborations.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://d-projects2026.github.io/dlearn/index.htmlcontact.html">
+<title>Reach Out &mdash; D. Learn</title>
+
+<style>
+:root {
+  --teal: #0D9488; --teal-dark: #0F766E; --teal-deep: #134E4A;
+  --teal-light: #14B8A6; --teal-pale: #CCFBF1; --teal-bg: #F0FDFA;
+  --wood: #8B6914; --wood-light: #A6842B; --wood-dark: #6B4F10;
+  --wood-pale: #F5ECD7; --wood-border: #E6D5A8; --wood-bg: #FBF7ED;
+  --bark: #5C3D0E; --bark-light: #7A5A28;
+  --sand: #FEF7E8; --sand-border: #F5E6C8;
+  --bg: #FAFCFC; --white: #FFFFFF;
+  --dark: #1E293B; --dark2: #334155;
+  --gold: #C6A96A; --gold-light: #D4BC85;
+  --gray: #64748B; --gray-light: #94A3B8; --gray-pale: #CBD5E1;
+  --border: #E2E8F0;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.08);
+  --purple: #6B4C8A;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--dark); line-height:1.7; overflow-x:hidden; }
+a { color:var(--teal); text-decoration:none; }
+::selection { background:var(--teal-pale); color:var(--dark); }
+
+@media(max-width:768px){   }
+
+/* ─── HERO ─── */
+.hero {
+  text-align:center; padding:5rem 2rem 3rem;
+  background:linear-gradient(170deg, var(--wood-bg) 0%, var(--teal-bg) 100%);
+  position:relative; overflow:hidden;
+}
+.hero h1 { font-size:2rem; font-weight:800; color:var(--bark); margin-bottom:0.5rem; }
+.hero p { color:var(--gray); font-size:0.95rem; max-width:550px; margin:0 auto; }
+
+/* ─── CONTACT SECTION ─── */
+.contact-section {
+  max-width:900px; margin:3rem auto; padding:0 2rem;
+  display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start;
+}
+.contact-info h3 { font-size:1.1rem; font-weight:700; color:var(--bark); margin-bottom:1rem; }
+.contact-info p { color:var(--gray); font-size:0.88rem; line-height:1.8; margin-bottom:1.5rem; }
+.info-item { display:flex; gap:0.8rem; margin-bottom:1.2rem; align-items:flex-start; }
+.info-icon { width:36px; height:36px; border-radius:10px; background:var(--teal-bg); color:var(--teal); display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
+.info-item .label { font-size:0.7rem; font-weight:700; letter-spacing:1.5px; color:var(--gray-light); }
+.info-item .value { font-size:0.88rem; color:var(--dark); font-weight:500; }
+
+/* ─── FORM ─── */
+.contact-form {
+  background:var(--white); border:2px solid var(--wood-border); border-radius:16px;
+  padding:2rem; box-shadow:var(--shadow-lg);
+}
+.form-title { font-size:0.7rem; font-weight:700; letter-spacing:2px; color:var(--teal); margin-bottom:1.2rem; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem; }
+.form-row.full { grid-template-columns:1fr; }
+.form-group { display:flex; flex-direction:column; }
+.form-group label { font-size:0.75rem; font-weight:600; color:var(--dark); margin-bottom:0.3rem; }
+.form-group label .req { color:var(--teal); }
+.form-group input, .form-group select, .form-group textarea {
+  padding:0.6rem 0.8rem; border:1.5px solid var(--border); border-radius:8px;
+  font-family:inherit; font-size:0.85rem; color:var(--dark);
+  background:var(--bg); transition:border-color 0.3s;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color:var(--teal); outline:none;
+}
+.form-group textarea { resize:vertical; min-height:100px; }
+.submit-btn {
+  width:100%; padding:0.85rem; border:none; border-radius:8px;
+  background:var(--teal); color:var(--white); font-size:0.85rem;
+  font-weight:700; letter-spacing:1.5px; cursor:pointer;
+  transition:all 0.3s; margin-top:0.5rem;
+}
+.submit-btn:hover { background:var(--teal-dark); transform:translateY(-2px); box-shadow:0 6px 20px rgba(13,148,136,0.3); }
+.success-message { display:none; text-align:center; padding:3rem 2rem; }
+.success-message .check { font-size:3rem; color:var(--teal); margin-bottom:1rem; }
+.success-message h3 { color:var(--dark); margin-bottom:0.5rem; }
+.success-message p { color:var(--gray); font-size:0.88rem; }
+
+@media(max-width:768px){
+  .contact-section { grid-template-columns:1fr; }
+  .form-row { grid-template-columns:1fr; }
+  .hero h1 { font-size:1.5rem; }
+}
+
+/* ─── FOOTER ─── */
+footer { background:linear-gradient(180deg, var(--bark) 0%, var(--wood-dark) 100%); text-align:center; padding:2.5rem 2rem; }
+footer .brand { font-size:1rem; font-weight:700; letter-spacing:4px; color:var(--wood-pale); margin-bottom:0.3rem; }
+footer .tagline { color:var(--wood-light); font-style:italic; font-size:0.82rem; margin-bottom:1rem; }
+footer .flinks { margin-bottom:1rem; }
+footer .flinks a { color:var(--wood-border); text-decoration:none; font-size:0.72rem; letter-spacing:1px; margin:0 0.7rem; transition:color 0.3s; }
+footer .flinks a:hover { color:var(--white); }
+footer .copy { font-size:0.62rem; color:rgba(255,255,255,0.35); }
+
+/* === FOOTER === */
+footer{text-align:center;padding:3rem 2rem;background:#134E4A;color:#fff}
+footer .brand{font-size:1.2rem;font-weight:800;letter-spacing:4px;color:#C6A96A}
+footer .tagline{font-size:0.75rem;color:rgba(255,255,255,0.7);margin:0.5rem 0 1.5rem}
+footer .flinks{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+footer .flinks a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.72rem;letter-spacing:1px;transition:color 0.2s}
+footer .flinks a:hover{color:#C6A96A}
+footer .copy{font-size:0.65rem;color:rgba(255,255,255,0.4)}
+
+@media(min-width:769px){}
+
+/* === NAV (canonical) === */
+.nav { position:sticky; top:0; z-index:100; background:rgba(251,247,237,0.95); backdrop-filter:blur(14px); border-bottom:2px solid var(--wood-border); padding:0.6rem 2rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+.nav-logo { display:flex; align-items:center; gap:0.65rem; text-decoration:none; flex-shrink:0; }
+.nav-logo .logo-wrap { width:42px; height:42px; border-radius:10px; background:transparent; display:flex; align-items:center; justify-content:center; overflow:hidden; flex-shrink:0; border:2px solid var(--wood-border); }
+.nav-logo .logo-wrap img { height:34px; width:34px; object-fit:contain; }
+.nav-logo .brand { display:flex; flex-direction:column; }
+.nav-logo .brand-name { font-size:1.05rem; font-weight:800; color:var(--bark); letter-spacing:1.5px; line-height:1.15; }
+.nav-logo .brand-sub { font-size:0.52rem; color:var(--wood-light); letter-spacing:0.6px; font-weight:500; line-height:1.2; }
+.nav-links { display:flex; gap:1.6rem; align-items:center; }
+.nav-links a { color:var(--bark-light); text-decoration:none; font-size:0.76rem; font-weight:600; letter-spacing:1.2px; transition:all 0.3s; padding:0.3rem 0; position:relative; }
+.nav-links a::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--teal); border-radius:1px; transform:scaleX(0); transition:transform 0.3s; }
+.nav-links a:hover { color:var(--teal); }
+.nav-links a:hover::after { transform:scaleX(1); }
+.nav-links a.active { color:var(--teal); }
+.nav-links a.active::after { transform:scaleX(1); }
+.nav-links a.nav-cta { background:var(--teal); color:#fff!important; padding:0.4rem 1rem; border-radius:6px; font-size:0.7rem; font-weight:700; letter-spacing:1px; }
+.nav-links a.nav-cta::after { display:none; }
+.hamburger { display:none; cursor:pointer; background:none; border:none; flex-direction:column; gap:5px; padding:6px; }
+.hamburger span { display:block; width:22px; height:2px; background:var(--bark); border-radius:1px; }
+.mobile-menu { display:none; position:fixed; top:56px; left:0; right:0; background:rgba(251,247,237,0.98); backdrop-filter:blur(12px); border-bottom:2px solid var(--wood-border); padding:1rem 2rem; z-index:99; flex-direction:column; gap:0.5rem; }
+.mobile-menu.open { display:flex; }
+.mobile-menu a { color:var(--dark); text-decoration:none; font-size:0.88rem; padding:0.6rem 0; border-bottom:1px solid var(--wood-pale); font-weight:500; }
+@media(max-width:768px){.hamburger:focus{outline:2px solid var(--gold, #C6A96A);outline-offset:2px} .hamburger{display:flex} .nav-links{display:none} }
+@media(min-width:769px){.mobile-menu,.mob-menu{display:none!important}}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head><body>
+
+<nav class="nav">
+  <a class="nav-logo" href="index.html">
+    <div class="logo-wrap"><img src="data:image/jpeg;base64,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" alt="D. Learn"></div>
+    <div class="brand"><span class="brand-name">D. LEARN</span><span class="brand-sub">D. Insights Freedom Platform</span></div>
+  </a>
+  <div class="nav-links">
+      <a href="index.html">HOME</a>
+      <a href="blog.html">GRAND LINE</a>
+      <a href="bites.html">TREASURES</a>
+      <a href="materials.html">ACADEMY</a>
+      <a href="contact.html" class="nav-cta">REACH OUT</a>
+  </div>
+  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="blog.html">Grand Line</a>
+  <a href="bites.html">Treasures</a>
+  <a href="materials.html">Academy</a>
+  <a href="contact.html" class="mob-cta">Reach Out</a>
+</div>
+
+<div class="hero">
+  <h1>&#128172; Reach Out</h1>
+  <p>Have a question, suggestion, or collaboration idea? We'd love to hear from you.</p>
+</div>
+
+<div class="contact-section">
+  <div class="contact-info">
+    <h3>Let's Connect</h3>
+    <p>Whether you want to suggest a topic, report an issue, explore a partnership, or just say hello — we're here and we respond within 48 hours.</p>
+
+    <div class="info-item">
+      <div class="info-icon">&#128231;</div>
+      <div><div class="label">EMAIL</div><div class="value">d-projects2026@outlook.com</div></div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon">&#127760;</div>
+      <div><div class="label">WEBSITES</div>
+        <div class="value"><a  rel="noopener noreferrer"href="https://d-projects2026.github.io/dinsights/" target="_blank">D. Insights</a> &middot; <a  rel="noopener noreferrer"href="https://d-projects2026.github.io/dprojects/" target="_blank">D. Projects</a></div>
+      </div>
+    </div>
+    <div class="info-item">
+      <div class="info-icon">&#128205;</div>
+      <div><div class="label">PART OF</div><div class="value">D. Insights Family</div></div>
+    </div>
+
+    <div style="margin-top:2rem;padding:1.2rem;background:var(--teal-bg);border-radius:12px;border:1.5px solid var(--teal-pale)">
+      <p style="font-size:0.8rem;color:var(--teal-dark);font-weight:600;margin-bottom:0.3rem">&#128161; Want construction tools?</p>
+      <p style="font-size:0.78rem;color:var(--gray)">Visit <a  rel="noopener noreferrer"href="https://d-projects2026.github.io/dprojects/.html" target="_blank" style="font-weight:600">D. Projects</a> to request a tailored quote for PMO, tender, feasibility, and site supervision templates.</p>
+    </div>
+  </div>
+
+  <div>
+    <form id="contactForm" class="contact-form" action="https://formsubmit.co/d-projects2026@outlook.com" method="POST">
+      <input type="hidden" name="_subject" value="New Message — D. Learn">
+      <input type="hidden" name="_captcha" value="true">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="_honey" style="display:none">
+      <input type="hidden" name="_next" value="https://d-projects2026.github.io/dlearn/index.htmlcontact.html#success">
+
+      <div class="form-title">SEND US A MESSAGE</div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name <span class="req">*</span></label>
+          <input type="text" name="name" required placeholder="e.g. Sarah Ahmed">
+        </div>
+        <div class="form-group">
+          <label>Email Address <span class="req">*</span></label>
+          <input type="email" name="email" required placeholder="e.g. sarah@email.com">
+        </div>
+      </div>
+
+      <div class="form-row full">
+        <div class="form-group">
+          <label>Subject <span class="req">*</span></label>
+          <select name="subject" required>
+            <option value="">Select a topic...</option>
+            <option>Suggest an Article Topic</option>
+            <option>Report an Error or Bug</option>
+            <option>Partnership / Collaboration</option>
+            <option>General Question</option>
+            <option>Feedback</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row full">
+        <div class="form-group">
+          <label>Your Message <span class="req">*</span></label>
+          <textarea name="message" required rows="5" placeholder="Tell us what's on your mind..."></textarea>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">SEND MESSAGE</button>
+      <p style="text-align:center;font-size:0.72rem;color:var(--gray);margin-top:0.8rem">We'll respond within 48 hours.</p>
+    </form>
+
+    <div id="successMessage" class="success-message">
+      <div class="check">&#10003;</div>
+      <h3>Message Sent Successfully!</h3>
+      <p>Thank you for reaching out! We'll get back to you within 48 hours.</p>
+      <p style="margin-top:1rem"><a href="index.html" style="color:var(--teal);font-weight:600">&larr; Back to Home</a></p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="brand">D. LEARN</div>
+  <div class="tagline">Knowledge That Builds.</div>
+  <div class="flinks">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Grand Line</a>
+    <a href="bites.html">Treasures</a>
+    <a href="materials.html">Academy</a>
+    <a href="contact.html">Reach Out</a>
+  </div>
+  <div class="copy">&copy; 2026 D. Insights &middot; D. Learn &middot; All rights reserved</div>
+  <div style="text-align:center;padding:1rem 0;border-top:1px solid rgba(139,105,20,0.15);margin-top:1rem">
+    <span style="font-size:0.65rem;font-weight:700;letter-spacing:2px;color:#8B6914">D. INSIGHTS FAMILY</span><br>
+    <a  rel="noopener noreferrer"href="https://d-projects2026.github.io/dinsights/" style="color:#0D9488;font-size:0.75rem;font-weight:600;margin:0.3rem 0.8rem" target="_blank">D. Insights</a>
+    <a  rel="noopener noreferrer"href="https://d-projects2026.github.io/dprojects/" style="color:#0D9488;font-size:0.75rem;font-weight:600;margin:0.3rem 0.8rem" target="_blank">D. Projects</a>
+  </div>
+</footer>
+
+
+<script>
+const h=document.querySelector('.hamburger'),m=document.querySelector('.mobile-menu');
+if(h)h.addEventListener('click',()=>m.classList.toggle('open'));
+</script>
+</body></html>

@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="description" content="Browse the D. Learn academy for structured learning paths in construction and business.">
+<meta name="theme-color" content="#0D9488">
+<meta property="og:title" content="The Academy | D. Learn">
+<meta property="og:description" content="Browse the D. Learn academy for structured learning paths in construction and business.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://d-projects2026.github.io/dlearn/index.htmlmaterials.html">
+<title>The Academy — D. Learn</title>
+
+<style>
+:root {
+  /* Teal palette */
+  --teal: #0D9488; --teal-dark: #0F766E; --teal-deep: #134E4A;
+  --teal-light: #14B8A6; --teal-pale: #CCFBF1; --teal-bg: #F0FDFA;
+  /* Wooden palette */
+  --wood: #8B6914; --wood-light: #A6842B; --wood-dark: #6B4F10;
+  --wood-pale: #F5ECD7; --wood-border: #E6D5A8; --wood-bg: #FBF7ED;
+  --bark: #5C3D0E; --bark-light: #7A5A28;
+  /* Sand (warm neutral) */
+  --sand: #FEF7E8; --sand-border: #F5E6C8;
+  /* Base */
+  --bg: #FAFCFC; --white: #FFFFFF;
+  --dark: #1E293B; --dark2: #334155;
+  --gold: #C6A96A; --gold-light: #D4BC85;
+  --gray: #64748B; --gray-light: #94A3B8; --gray-pale: #CBD5E1;
+  --border: #E2E8F0;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.08);
+  --red: #B23026; --green: #2D8B4E; --blue: #2A6496;
+  --orange: #C27A32; --purple: #6B4C8A;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--dark); line-height:1.7; overflow-x:hidden; }
+a { color:var(--teal); text-decoration:none; }
+::selection { background:var(--teal-pale); color:var(--dark); }
+
+/* ─── NAV with wooden accent ─── */
+
+@media(max-width:768px){   }
+
+/* ─── HERO SECTION ─── */
+.hero {
+  background: linear-gradient(135deg, var(--teal-bg) 0%, var(--sand) 100%);
+  padding: 4rem 2rem 3rem;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+.hero .subtitle {
+  font-size: 1.05rem;
+  color: var(--gray);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+.stats-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+.stat-item {
+  font-size: 0.95rem;
+  color: var(--gray-light);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.stat-item strong {
+  color: var(--teal-dark);
+  font-weight: 700;
+}
+
+/* ─── FILTER BAR ─── */
+.filter-bar {
+  max-width: 1200px;
+  margin: 2.5rem auto 0;
+  padding: 0 2rem;
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem;
+}
+.filter-bar::-webkit-scrollbar {
+  height: 4px;
+}
+.filter-bar::-webkit-scrollbar-track {
+  background: var(--border);
+  border-radius: 2px;
+}
+.filter-bar::-webkit-scrollbar-thumb {
+  background: var(--teal-light);
+  border-radius: 2px;
+}
+.filter-btn {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  color: var(--gray);
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+.filter-btn:hover {
+  border-color: var(--teal-light);
+  color: var(--teal);
+}
+.filter-btn.active {
+  background: var(--teal);
+  color: var(--white);
+  border-color: var(--teal);
+}
+
+/* ─── CONTENT SECTION ─── */
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ─── MATERIAL GROUPS ─── */
+.material-group {
+  margin-bottom: 3rem;
+  display: none;
+}
+.material-group.active {
+  display: block;
+  animation: fadeIn 0.4s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.group-section {
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+.group-header {
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-left: 4px solid;
+  background: linear-gradient(90deg, rgba(13, 148, 136, 0.02) 0%, transparent 100%);
+}
+.group-header.c1 { border-left-color: #C6A96A; }
+.group-header.c2 { border-left-color: #2A6496; }
+.group-header.c3 { border-left-color: #2D8B4E; }
+.group-header.c4 { border-left-color: #6B4C8A; }
+.group-header.c5 { border-left-color: #C27A32; }
+.group-header.c6 { border-left-color: #B23026; }
+.group-header.c7 { border-left-color: #C6A96A; }
+.group-header.c8 { border-left-color: #B8860B; }
+.group-header.c9 { border-left-color: #DC2626; }
+.group-header.c10 { border-left-color: #0369A1; }
+.group-header h2 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--dark);
+  margin: 0;
+}
+.group-header .item-count {
+  margin-left: auto;
+  background: var(--teal-pale);
+  color: var(--teal-dark);
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.group-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+@media(max-width: 768px) {
+  .group-items {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+}
+
+/* ─── MATERIAL CARDS ─── */
+.material-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.material-card:hover {
+  border-color: var(--teal);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+.card-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-top: 0.3rem;
+  flex-shrink: 0;
+}
+.card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.4;
+}
+.card-description {
+  font-size: 0.85rem;
+  color: var(--gray);
+  line-height: 1.6;
+  flex-grow: 1;
+}
+.card-tag {
+  display: inline-block;
+  background: var(--teal-pale);
+  color: var(--teal-dark);
+  padding: 0.3rem 0.8rem;
+  border-radius: 16px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  width: fit-content;
+  margin-top: 0.3rem;
+}
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+.card-price {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--wood);
+  background: var(--wood-pale);
+  padding: 0.25rem 0.7rem;
+  border-radius: 16px;
+  letter-spacing: 0.3px;
+}
+
+/* ─── CTA SECTION ─── */
+.cta-section {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+.cta-card {
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.cta-card h2 {
+  color: var(--white);
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 0.8rem;
+}
+.cta-card p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+.cta-card a {
+  color: var(--sand);
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+.cta-card a:hover {
+  color: var(--white);
+}
+
+/* FOOTER — wooden themed */
+footer { background:linear-gradient(180deg, var(--bark) 0%, var(--wood-dark) 100%); text-align:center; padding:2.5rem 2rem; }
+footer .brand { font-size:1rem; font-weight:700; letter-spacing:4px; color:var(--wood-pale); margin-bottom:0.3rem; }
+footer .tagline { color:var(--wood-light); font-style:italic; font-size:0.82rem; margin-bottom:1rem; }
+footer .flinks { margin-bottom:1rem; }
+footer .flinks a { color:var(--wood-border); text-decoration:none; font-size:0.72rem; letter-spacing:1px; margin:0 0.7rem; transition:color 0.3s; }
+footer .flinks a:hover { color:var(--white); }
+footer .copy { font-size:0.62rem; color:rgba(255,255,255,0.35); }
+
+@media(max-width:400px){
+  .hero h1 { font-size: 1.8rem; }
+  .stats-bar { gap: 1rem; }
+}
+
+/* === FOOTER === */
+footer{text-align:center;padding:3rem 2rem;background:#134E4A;color:#fff}
+footer .brand{font-size:1.2rem;font-weight:800;letter-spacing:4px;color:#C6A96A}
+footer .tagline{font-size:0.75rem;color:rgba(255,255,255,0.7);margin:0.5rem 0 1.5rem}
+footer .flinks{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+footer .flinks a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.72rem;letter-spacing:1px;transition:color 0.2s}
+footer .flinks a:hover{color:#C6A96A}
+footer .copy{font-size:0.65rem;color:rgba(255,255,255,0.4)}
+
+@media(min-width:769px){}
+
+/* === NAV (canonical) === */
+.nav { position:sticky; top:0; z-index:100; background:rgba(251,247,237,0.95); backdrop-filter:blur(14px); border-bottom:2px solid var(--wood-border); padding:0.6rem 2rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+.nav-logo { display:flex; align-items:center; gap:0.65rem; text-decoration:none; flex-shrink:0; }
+.nav-logo .logo-wrap { width:42px; height:42px; border-radius:10px; background:transparent; display:flex; align-items:center; justify-content:center; overflow:hidden; flex-shrink:0; border:2px solid var(--wood-border); }
+.nav-logo .logo-wrap img { height:34px; width:34px; object-fit:contain; }
+.nav-logo .brand { display:flex; flex-direction:column; }
+.nav-logo .brand-name { font-size:1.05rem; font-weight:800; color:var(--bark); letter-spacing:1.5px; line-height:1.15; }
+.nav-logo .brand-sub { font-size:0.52rem; color:var(--wood-light); letter-spacing:0.6px; font-weight:500; line-height:1.2; }
+.nav-links { display:flex; gap:1.6rem; align-items:center; }
+.nav-links a { color:var(--bark-light); text-decoration:none; font-size:0.76rem; font-weight:600; letter-spacing:1.2px; transition:all 0.3s; padding:0.3rem 0; position:relative; }
+.nav-links a::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--teal); border-radius:1px; transform:scaleX(0); transition:transform 0.3s; }
+.nav-links a:hover { color:var(--teal); }
+.nav-links a:hover::after { transform:scaleX(1); }
+.nav-links a.active { color:var(--teal); }
+.nav-links a.active::after { transform:scaleX(1); }
+.nav-links a.nav-cta { background:var(--teal); color:#fff!important; padding:0.4rem 1rem; border-radius:6px; font-size:0.7rem; font-weight:700; letter-spacing:1px; }
+.nav-links a.nav-cta::after { display:none; }
+.hamburger { display:none; cursor:pointer; background:none; border:none; flex-direction:column; gap:5px; padding:6px; }
+.hamburger span { display:block; width:22px; height:2px; background:var(--bark); border-radius:1px; }
+.mobile-menu { display:none; position:fixed; top:56px; left:0; right:0; background:rgba(251,247,237,0.98); backdrop-filter:blur(12px); border-bottom:2px solid var(--wood-border); padding:1rem 2rem; z-index:99; flex-direction:column; gap:0.5rem; }
+.mobile-menu.open { display:flex; }
+.mobile-menu a { color:var(--dark); text-decoration:none; font-size:0.88rem; padding:0.6rem 0; border-bottom:1px solid var(--wood-pale); font-weight:500; }
+@media(max-width:768px){.hamburger:focus{outline:2px solid var(--gold, #C6A96A);outline-offset:2px} .hamburger{display:flex} .nav-links{display:none} }
+@media(min-width:769px){.mobile-menu,.mob-menu{display:none!important}}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head><body>
+<nav class="nav">
+  <a class="nav-logo" href="index.html">
+    <div class="logo-wrap"><img src="data:image/jpeg;base64,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" alt="D. Learn"></div>
+    <div class="brand"><span class="brand-name">D. LEARN</span><span class="brand-sub">D. Insights Freedom Platform</span></div>
+  </a>
+  <div class="nav-links">
+      <a href="index.html">HOME</a>
+      <a href="blog.html">GRAND LINE</a>
+      <a href="bites.html">TREASURES</a>
+      <a href="materials.html">ACADEMY</a>
+      <a href="contact.html" class="nav-cta">REACH OUT</a>
+  </div>
+  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="blog.html">Grand Line</a>
+  <a href="bites.html">Treasures</a>
+  <a href="materials.html">Academy</a>
+  <a href="contact.html" class="mob-cta">Reach Out</a>
+</div>
+
+<section class="hero">
+  <h1>Academy & Resources</h1>
+  <p class="subtitle">Structured training materials built for professional teams. Guides, workshops, courses, and implementation frameworks — ready to deploy or customize for your organization.</p>
+  <div class="stats-bar">
+    <span class="stat-item"><strong>10 Categories</strong></span>
+    <span class="stat-item">·</span>
+    <span class="stat-item"><strong>48 Resources</strong></span>
+    <span class="stat-item">·</span>
+    <span class="stat-item"><strong>Priced / Person</strong></span>
+  </div>
+</section>
+
+<div class="filter-bar">
+  <button class="filter-btn active" data-category="all">All</button>
+  <button class="filter-btn" data-category="cat1">Project Management</button>
+  <button class="filter-btn" data-category="cat2">Bidding & Procurement</button>
+  <button class="filter-btn" data-category="cat3">Feasibility & Investment</button>
+  <button class="filter-btn" data-category="cat4">Due Diligence</button>
+  <button class="filter-btn" data-category="cat5">Quality & Supervision</button>
+  <button class="filter-btn" data-category="cat6">Claims & Disputes</button>
+  <button class="filter-btn" data-category="cat7">Leadership</button>
+  <button class="filter-btn" data-category="cat8">Sales & Business</button>
+  <button class="filter-btn" data-category="cat9">Healthcare</button>
+  <button class="filter-btn" data-category="cat10">Technology</button>
+</div>
+
+<div class="content">
+
+<!-- Group 1: Project Management & PMO -->
+<div class="material-group active" data-category="cat1">
+  <div class="group-section">
+    <div class="group-header c1">
+      <h2>Project Management & PMO</h2>
+      <div class="item-count">6 items</div>
+    </div>
+    <div class="group-items">
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#C6A96A"></div>
+          <div class="card-title">PMO Setup & Implementation Guide</div>
+        </div>
+        <p class="card-description">Step-by-step blueprint for establishing a PMO from scratch — org structure, templates, governance model, and a 6-month rollout plan tailored to construction companies.</p>
+        <div class="card-footer"><span class="card-tag">Guide</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#C6A96A"></div>
+          <div class="card-title">Earned Value Management Workshop Kit</div>
+        </div>
+        <p class="card-description">Interactive workshop teaching EVM fundamentals: PV, EV, AC, SPI, CPI. Includes exercises using real project data and a ready-to-use Excel tracker.</p>
+        <div class="card-footer"><span class="card-tag">Workshop</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#C6A96A"></div>
+          <div class="card-title">Risk Management for Construction</div>
+        </div>
+        <p class="card-description">From risk identification to mitigation planning — covers qualitative and quantitative analysis, risk registers, Monte Carlo basics, and MENA-specific risks.</p>
+        <div class="card-footer"><span class="card-tag">Course</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#C6A96A"></div>
+          <div class="card-title">Stakeholder Communication Planning</div>
+        </div>
+        <p class="card-description">Map your stakeholders, define communication channels, frequency, and escalation paths. Includes templates for weekly reports, monthly dashboards, and executive briefs.</p>
+        <div class="card-footer"><span class="card-tag">Framework</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#C6A96A"></div>
+          <div class="card-title">Change Order Management Manual</div>
+        </div>
+        <p class="card-description">A complete system for managing scope changes: initiation forms, impact assessment templates, approval workflows, and tracking logs. Prevents the 'scope creep' that kills budgets.</p>
+        <div class="card-footer"><span class="card-tag">Manual</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#C6A96A"></div>
+          <div class="card-title">Project Close-Out Handbook</div>
+        </div>
+        <p class="card-description">The most neglected phase done right — handover checklists, defects liability management, as-built documentation, lessons learned workshops, and financial close-out procedures.</p>
+        <div class="card-footer"><span class="card-tag">Handbook</span><span class="card-price">Per Person</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Group 2: Bidding & Procurement -->
+<div class="material-group active" data-category="cat2">
+  <div class="group-section">
+    <div class="group-header c2">
+      <h2>Bidding & Procurement</h2>
+      <div class="item-count">5 items</div>
+    </div>
+    <div class="group-items">
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#2A6496"></div>
+          <div class="card-title">Procurement Strategy Guide</div>
+        </div>
+        <p class="card-description">How to choose between open tender, selective tender, negotiation, and framework agreements. Includes decision matrices and real MENA case examples.</p>
+        <div class="card-footer"><span class="card-tag">Guide</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#2A6496"></div>
+          <div class="card-title">Bid Evaluation Training</div>
+        </div>
+        <p class="card-description">Technical and commercial evaluation methods — scoring matrices, normalization techniques, and how to write defensible evaluation reports that survive audit.</p>
+        <div class="card-footer"><span class="card-tag">Training</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#2A6496"></div>
+          <div class="card-title">Prequalification Best Practices</div>
+        </div>
+        <p class="card-description">Design PQ questionnaires, set pass/fail criteria, evaluate contractor capability. Covers financial, technical, HSE, and experience assessment with scoring templates.</p>
+        <div class="card-footer"><span class="card-tag">Framework</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#2A6496"></div>
+          <div class="card-title">Contract Negotiation Essentials</div>
+        </div>
+        <p class="card-description">Negotiation strategies for construction contracts — price, programme, risk allocation, retention, and payment terms. Role-play scenarios included for team training.</p>
+        <div class="card-footer"><span class="card-tag">Workshop</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#2A6496"></div>
+          <div class="card-title">Subcontractor Management Framework</div>
+        </div>
+        <p class="card-description">From prequalification to final account — managing subs effectively: scope definition, progress measurement, payment certification, and dispute prevention.</p>
+        <div class="card-footer"><span class="card-tag">Framework</span><span class="card-price">Per Person</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Group 3: Feasibility & Investment -->
+<div class="material-group active" data-category="cat3">
+  <div class="group-section">
+    <div class="group-header c3">
+      <h2>Feasibility & Investment</h2>
+      <div class="item-count">5 items</div>
+    </div>
+    <div class="group-items">
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#2D8B4E"></div>
+          <div class="card-title">Real Estate Feasibility Masterclass</div>
+        </div>
+        <p class="card-description">Complete course covering market analysis, site assessment, development programming, financial modeling, and risk assessment. Includes a working Excel model with Egyptian market data.</p>
+        <div class="card-footer"><span class="card-tag">Course</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#2D8B4E"></div>
+          <div class="card-title">Financial Modeling (IRR, NPV, Cash Flow)</div>
+        </div>
+        <p class="card-description">Build investor-grade financial models from scratch — cash flow projections, sensitivity analysis, scenario modeling, and the metrics that matter: NPV, IRR, payback, and equity multiples.</p>
+        <div class="card-footer"><span class="card-tag">Guide</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#2D8B4E"></div>
+          <div class="card-title">Market Analysis for MENA</div>
+        </div>
+        <p class="card-description">Research methodologies for MENA real estate: data sources, comparable analysis, absorption rate estimation, and how to work with limited public data — a common challenge in the region.</p>
+        <div class="card-footer"><span class="card-tag">Framework</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#2D8B4E"></div>
+          <div class="card-title">Investor Presentation Workshop</div>
+        </div>
+        <p class="card-description">Turn your feasibility study into a compelling investor pitch — structure, visual standards, key metrics to highlight, and how to handle tough questions from sophisticated investors.</p>
+        <div class="card-footer"><span class="card-tag">Workshop</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#2D8B4E"></div>
+          <div class="card-title">Land Acquisition DD Checklist</div>
+        </div>
+        <p class="card-description">Everything to verify before buying land: title, zoning, environmental, utilities, access, soil conditions, legal encumbrances, and regulatory approvals. 50+ checkpoint items.</p>
+        <div class="card-footer"><span class="card-tag">Checklist</span><span class="card-price">Per Person</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Group 4: Due Diligence & Compliance -->
+<div class="material-group active" data-category="cat4">
+  <div class="group-section">
+    <div class="group-header c4">
+      <h2>Due Diligence & Compliance</h2>
+      <div class="item-count">5 items</div>
+    </div>
+    <div class="group-items">
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#6B4C8A"></div>
+          <div class="card-title">Technical Due Diligence Framework</div>
+        </div>
+        <p class="card-description">Systematic approach to evaluating construction assets: structural condition, MEP systems, code compliance, remaining useful life, and CAPEX forecasting for renovation.</p>
+        <div class="card-footer"><span class="card-tag">Framework</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#6B4C8A"></div>
+          <div class="card-title">KPI Design for Construction</div>
+        </div>
+        <p class="card-description">Select, define, and implement meaningful KPIs — covers project, portfolio, and organizational levels. Includes a KPI dictionary with 40+ construction-specific indicators.</p>
+        <div class="card-footer"><span class="card-tag">Guide</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#6B4C8A"></div>
+          <div class="card-title">Regulatory Compliance — Egypt</div>
+        </div>
+        <p class="card-description">Navigate Egyptian construction regulations: building permits, environmental approvals, labor law, safety requirements, and insurance obligations. Updated for current requirements.</p>
+        <div class="card-footer"><span class="card-tag">Manual</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#6B4C8A"></div>
+          <div class="card-title">Environmental Impact Primer</div>
+        </div>
+        <p class="card-description">Introduction to EIA for construction professionals — when it's required, what it covers, the approval process, and how to integrate environmental considerations into project planning.</p>
+        <div class="card-footer"><span class="card-tag">Primer</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#6B4C8A"></div>
+          <div class="card-title">Portfolio Risk Assessment</div>
+        </div>
+        <p class="card-description">Aggregate risk across multiple projects — correlation effects, resource conflicts, market concentration, and portfolio-level mitigation strategies for construction companies managing 5+ active projects.</p>
+        <div class="card-footer"><span class="card-tag">Framework</span><span class="card-price">Per Person</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Group 5: Quality & Site Supervision -->
+<div class="material-group active" data-category="cat5">
+  <div class="group-section">
+    <div class="group-header c5">
+      <h2>Quality & Site Supervision</h2>
+      <div class="item-count">5 items</div>
+    </div>
+    <div class="group-items">
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#C27A32"></div>
+          <div class="card-title">QA/QC System Implementation</div>
+        </div>
+        <p class="card-description">Build a quality management system from scratch — quality policy, procedures, ITPs, NCR process, audit programme, and continuous improvement cycle. Aligned with ISO 9001 principles.</p>
+        <div class="card-footer"><span class="card-tag">Framework</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#C27A32"></div>
+          <div class="card-title">ITP Development Guide</div>
+        </div>
+        <p class="card-description">Create Inspection & Test Plans for any trade: concrete, steel, MEP, finishes. Includes 15+ ready-to-customize ITP templates with hold points, witness points, and acceptance criteria.</p>
+        <div class="card-footer"><span class="card-tag">Guide</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#C27A32"></div>
+          <div class="card-title">HSE Fundamentals for Site Engineers</div>
+        </div>
+        <p class="card-description">Health, Safety, and Environment essentials — risk assessments, toolbox talks, incident investigation, PPE management, and creating a safety culture that goes beyond compliance.</p>
+        <div class="card-footer"><span class="card-tag">Course</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#C27A32"></div>
+          <div class="card-title">Inspection Manuals (Concrete, Steel, MEP)</div>
+        </div>
+        <p class="card-description">Detailed inspection checklists and acceptance criteria for major trades. What to look for, what to measure, when to reject, and how to document — the field engineer's best friend.</p>
+        <div class="card-footer"><span class="card-tag">Manual</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#C27A32"></div>
+          <div class="card-title">Defect Management Procedures</div>
+        </div>
+        <p class="card-description">From identification to close-out — defect classification, notification procedures, rectification tracking, and warranty period management. Includes a digital defect log template.</p>
+        <div class="card-footer"><span class="card-tag">Procedures</span><span class="card-price">Per Person</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Group 6: Claims & Dispute Resolution -->
+<div class="material-group active" data-category="cat6">
+  <div class="group-section">
+    <div class="group-header c6">
+      <h2>Claims & Dispute Resolution</h2>
+      <div class="item-count">5 items</div>
+    </div>
+    <div class="group-items">
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#B23026"></div>
+          <div class="card-title">Claims Preparation Course</div>
+        </div>
+        <p class="card-description">End-to-end claims management: identification, notification, substantiation, quantification, and presentation. Covers FIDIC 2017 procedures with worked examples from real MENA projects.</p>
+        <div class="card-footer"><span class="card-tag">Course</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#B23026"></div>
+          <div class="card-title">Delay Analysis Methods</div>
+        </div>
+        <p class="card-description">Master the five main delay analysis techniques: As-Planned vs As-Built, Impacted As-Planned, Collapsed As-Built, Time Impact Analysis, and Windows Analysis. Know when to use each.</p>
+        <div class="card-footer"><span class="card-tag">Guide</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#B23026"></div>
+          <div class="card-title">FIDIC Claims Deep Dive</div>
+        </div>
+        <p class="card-description">Clause-by-clause analysis of claims-related provisions in FIDIC 2017 Red, Yellow, and Silver Books. Covers Clauses 8, 13, 14, and 20 with practical interpretation guidance.</p>
+        <div class="card-footer"><span class="card-tag">Workshop</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#B23026"></div>
+          <div class="card-title">EOT Application Guide</div>
+        </div>
+        <p class="card-description">How to prepare a compelling Extension of Time application — notice drafting, programme analysis, cause-and-effect demonstration, and prolongation cost quantification with supporting evidence.</p>
+        <div class="card-footer"><span class="card-tag">Guide</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#B23026"></div>
+          <div class="card-title">ADR in MENA</div>
+        </div>
+        <p class="card-description">Alternative Dispute Resolution options in the region — mediation, adjudication (DAAB), expert determination, and arbitration (ICC, CRCICA). When to use each, costs, timelines, and enforceability.</p>
+        <div class="card-footer"><span class="card-tag">Framework</span><span class="card-price">Per Person</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Group 7: Leadership & Management -->
+<div class="material-group active" data-category="cat7">
+  <div class="group-section">
+    <div class="group-header c7">
+      <h2>Leadership & Management</h2>
+      <div class="item-count">4 items</div>
+    </div>
+    <div class="group-items">
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#C6A96A"></div>
+          <div class="card-title">Leadership Styles & Situational Leadership</div>
+        </div>
+        <p class="card-description">Understand the major leadership frameworks — directive, supportive, participative, and achievement-oriented. Know when to use each style based on team maturity and project context.</p>
+        <div class="card-footer"><span class="card-tag">Course</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#C6A96A"></div>
+          <div class="card-title">Team Building & Conflict Resolution</div>
+        </div>
+        <p class="card-description">Build cohesive teams from day one. Master team formation stages, resolve conflicts before they escalate, and create a culture of accountability and trust.</p>
+        <div class="card-footer"><span class="card-tag">Workshop</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#C6A96A"></div>
+          <div class="card-title">Decision-Making Frameworks</div>
+        </div>
+        <p class="card-description">From quick decisions under pressure to complex strategic choices — learn decision matrices, RACI models, and when to consult vs. decide autonomously.</p>
+        <div class="card-footer"><span class="card-tag">Framework</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#C6A96A"></div>
+          <div class="card-title">Delegation & Performance Management</div>
+        </div>
+        <p class="card-description">Delegate effectively without losing control. Set performance expectations, provide feedback, and develop your team through meaningful work assignments.</p>
+        <div class="card-footer"><span class="card-tag">Guide</span><span class="card-price">Per Person</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Group 8: Sales, Marketing & Business -->
+<div class="material-group active" data-category="cat8">
+  <div class="group-section">
+    <div class="group-header c8">
+      <h2>Sales, Marketing & Business</h2>
+      <div class="item-count">5 items</div>
+    </div>
+    <div class="group-items">
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#B8860B"></div>
+          <div class="card-title">Sales Fundamentals & Closing Techniques</div>
+        </div>
+        <p class="card-description">The sales process from prospecting to close — how to identify needs, present solutions, handle objections, and secure the deal. Real-world scenarios from construction and service sectors.</p>
+        <div class="card-footer"><span class="card-tag">Course</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#B8860B"></div>
+          <div class="card-title">Digital Marketing Strategy</div>
+        </div>
+        <p class="card-description">Build a digital presence that converts. SEO basics, social media strategy, email marketing, content calendars, and measuring ROI — all without a large marketing team.</p>
+        <div class="card-footer"><span class="card-tag">Guide</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#B8860B"></div>
+          <div class="card-title">Business Planning & Growth Strategy</div>
+        </div>
+        <p class="card-description">Write a business plan that banks will fund and investors will back. Market analysis, competitive positioning, financial projections, and a realistic 3-year roadmap.</p>
+        <div class="card-footer"><span class="card-tag">Framework</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#B8860B"></div>
+          <div class="card-title">Pricing Strategy & Value Proposition</div>
+        </div>
+        <p class="card-description">Price your services right — not too low (you'll lose money), not too high (you'll lose deals). Cost-plus, value-based, and competitive pricing models explained.</p>
+        <div class="card-footer"><span class="card-tag">Guide</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#B8860B"></div>
+          <div class="card-title">Customer Retention & Lifetime Value</div>
+        </div>
+        <p class="card-description">Acquiring a customer costs 5x more than keeping one. Learn retention strategies, loyalty programs, and how to turn customers into advocates.</p>
+        <div class="card-footer"><span class="card-tag">Strategy</span><span class="card-price">Per Person</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Group 9: Healthcare & Medical -->
+<div class="material-group active" data-category="cat9">
+  <div class="group-section">
+    <div class="group-header c9">
+      <h2>Healthcare & Medical</h2>
+      <div class="item-count">4 items</div>
+    </div>
+    <div class="group-items">
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#DC2626"></div>
+          <div class="card-title">Healthcare Leadership Essentials</div>
+        </div>
+        <p class="card-description">Lead healthcare teams with compassion and accountability. Patient-centered care, compliance with medical standards, managing clinical staff, and balancing care with operations.</p>
+        <div class="card-footer"><span class="card-tag">Course</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#DC2626"></div>
+          <div class="card-title">Medical Documentation & Compliance</div>
+        </div>
+        <p class="card-description">Accurate records save lives and prevent liability. Electronic health records (EHR), HIPAA compliance, documentation standards, and audit preparation.</p>
+        <div class="card-footer"><span class="card-tag">Manual</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#DC2626"></div>
+          <div class="card-title">Quality & Safety in Healthcare Facilities</div>
+        </div>
+        <p class="card-description">Implement safety protocols that reduce errors and adverse events. Root cause analysis, incident reporting, staff training, and creating a safety culture.</p>
+        <div class="card-footer"><span class="card-tag">Framework</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#DC2626"></div>
+          <div class="card-title">Healthcare Operations & Resource Planning</div>
+        </div>
+        <p class="card-description">Manage beds, staff schedules, equipment, and budgets. Demand forecasting, capacity planning, and the unique challenges of 24/7 operations.</p>
+        <div class="card-footer"><span class="card-tag">Guide</span><span class="card-price">Per Person</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Group 10: Technology & Digital Skills -->
+<div class="material-group active" data-category="cat10">
+  <div class="group-section">
+    <div class="group-header c10">
+      <h2>Technology & Digital Skills</h2>
+      <div class="item-count">4 items</div>
+    </div>
+    <div class="group-items">
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#0369A1"></div>
+          <div class="card-title">Digital Transformation for Non-Tech Leaders</div>
+        </div>
+        <p class="card-description">Lead your organization through digital change without needing to code. When to automate, how to manage resistance, tools to evaluate, and change management best practices.</p>
+        <div class="card-footer"><span class="card-tag">Course</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#0369A1"></div>
+          <div class="card-title">Cloud Tools for Business (SaaS, APIs, Integrations)</div>
+        </div>
+        <p class="card-description">Choose and implement cloud solutions — CRM, ERP, project management tools. Understand SaaS pricing, data security, vendor lock-in, and API integrations.</p>
+        <div class="card-footer"><span class="card-tag">Guide</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#0369A1"></div>
+          <div class="card-title">Data Analysis & Business Intelligence Basics</div>
+        </div>
+        <p class="card-description">Turn data into decisions. Spreadsheets, basic SQL, visualization tools, and how to ask the right questions to uncover insights hidden in your data.</p>
+        <div class="card-footer"><span class="card-tag">Course</span><span class="card-price">Per Person</span></div>
+      </div>
+      <div class="material-card">
+        <div class="card-header">
+          <div class="card-dot" style="background:#0369A1"></div>
+          <div class="card-title">Cybersecurity Fundamentals for Teams</div>
+        </div>
+        <p class="card-description">Protect your organization from breaches. Password management, phishing awareness, data classification, encryption basics, and incident response planning.</p>
+        <div class="card-footer"><span class="card-tag">Workshop</span><span class="card-price">Per Person</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA Section -->
+<div class="cta-section">
+  <div class="cta-card">
+    <h2>Charting New Territory?</h2>
+    <p>Every expedition is unique. All materials are priced per person and can be customized for your team's exact needs — specific to your projects, your region, and your growth goals. Reach out for pricing, group discounts, or custom material development.</p>
+    <a href="mailto:learn@dinsights.com">learn@dinsights.com</a>
+  </div>
+</div>
+
+</div>
+
+<footer>
+  <div class="brand">D. LEARN</div>
+  <div class="tagline">Knowledge That Builds.</div>
+  <div class="flinks">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Grand Line</a>
+    <a href="bites.html">Treasures</a>
+    <a href="materials.html">Academy</a>
+    <a href="contact.html">Reach Out</a>
+  </div>
+  <div class="copy">&copy; 2026 D. Insights &middot; D. Learn &middot; All rights reserved</div>
+  <div style="text-align:center;padding:1rem 0;border-top:1px solid rgba(139,105,20,0.15);margin-top:1rem">
+    <span style="font-size:0.65rem;font-weight:700;letter-spacing:2px;color:#8B6914">D. INSIGHTS FAMILY</span><br>
+    <a  rel="noopener noreferrer"href="https://d-projects2026.github.io/dinsights/" style="color:#0D9488;font-size:0.75rem;font-weight:600;margin:0.3rem 0.8rem" target="_blank">D. Insights</a>
+    <a  rel="noopener noreferrer"href="https://d-projects2026.github.io/dprojects/" style="color:#0D9488;font-size:0.75rem;font-weight:600;margin:0.3rem 0.8rem" target="_blank">D. Projects</a>
+  </div>
+</footer>
+
+
+<script>
+const h=document.querySelector('.hamburger'),m=document.querySelector('.mobile-menu');
+if(h)h.addEventListener('click',()=>m.classList.toggle('open'));
+
+// ─── Material Filter Logic ───
+const filterBtns = document.querySelectorAll('.filter-btn');
+const groups = document.querySelectorAll('.material-group');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Update active button
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const cat = btn.getAttribute('data-category');
+
+    if (cat === 'all') {
+      // Show all groups
+      groups.forEach(g => g.classList.add('active'));
+    } else {
+      // Show only the matching group
+      groups.forEach(g => {
+        if (g.getAttribute('data-category') === cat) {
+          g.classList.add('active');
+        } else {
+          g.classList.remove('active');
+        }
+      });
+    }
+  });
+});
+</script>
+</body></html>

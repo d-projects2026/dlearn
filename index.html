@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="description" content="D. Learn — Free educational platform for construction, business, marketing, and project management. 263+ articles, 16 professional classes, one epic journey.">
+<meta name="theme-color" content="#0D9488">
+<meta property="og:title" content="D. Learn — Knowledge That Builds">
+<meta property="og:description" content="Free educational platform — construction, business, marketing, sales, healthcare, technology and beyond.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://d-projects2026.github.io/dlearn/index.html">
+<title>D. Learn — Knowledge That Builds</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --teal: #0D9488; --teal-dark: #0F766E; --teal-deep: #134E4A;
+  --teal-light: #14B8A6; --teal-pale: #CCFBF1; --teal-bg: #F0FDFA;
+  --wood: #8B6914; --wood-light: #A6842B; --wood-dark: #6B4F10;
+  --wood-pale: #F5ECD7; --wood-border: #E6D5A8; --wood-bg: #FBF7ED;
+  --bark: #5C3D0E; --bark-light: #7A5A28;
+  --sand: #FEF7E8; --bg: #FAFCFC; --white: #FFFFFF;
+  --dark: #1E293B; --dark2: #0F1923; --dark-mid: #1A2B3C;
+  --gold: #C6A96A; --gold-light: #D4BC85; --gold-dark: #9E8550;
+  --gray: #64748B; --gray-light: #94A3B8;
+  --border: #E2E8F0;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.08);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--dark); line-height:1.7; overflow-x:hidden; }
+a { color:var(--teal); text-decoration:none; }
+::selection { background:var(--teal-pale); color:var(--dark); }
+
+/* ─── NAV (canonical) ─── */
+.nav { position:sticky; top:0; z-index:100; background:rgba(251,247,237,0.95); backdrop-filter:blur(14px); border-bottom:2px solid var(--wood-border); padding:0.6rem 2rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+.nav-logo { display:flex; align-items:center; gap:0.65rem; text-decoration:none; flex-shrink:0; }
+.nav-logo .logo-wrap { width:42px; height:42px; border-radius:10px; background:transparent; display:flex; align-items:center; justify-content:center; overflow:hidden; flex-shrink:0; border:2px solid var(--wood-border); }
+.nav-logo .logo-wrap img { height:34px; width:34px; object-fit:contain; }
+.nav-logo .brand { display:flex; flex-direction:column; }
+.nav-logo .brand-name { font-size:1.05rem; font-weight:800; color:var(--bark); letter-spacing:1.5px; line-height:1.15; }
+.nav-logo .brand-sub { font-size:0.52rem; color:var(--wood-light); letter-spacing:0.6px; font-weight:500; line-height:1.2; }
+.nav-links { display:flex; gap:1.6rem; align-items:center; }
+.nav-links a { color:var(--bark-light); text-decoration:none; font-size:0.76rem; font-weight:600; letter-spacing:1.2px; transition:all 0.3s; padding:0.3rem 0; position:relative; }
+.nav-links a::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--teal); border-radius:1px; transform:scaleX(0); transition:transform 0.3s; }
+.nav-links a:hover { color:var(--teal); }
+.nav-links a:hover::after { transform:scaleX(1); }
+.nav-links a.active { color:var(--teal); }
+.nav-links a.active::after { transform:scaleX(1); }
+.nav-links a.nav-cta { background:var(--teal); color:#fff!important; padding:0.4rem 1rem; border-radius:6px; font-size:0.7rem; font-weight:700; letter-spacing:1px; }
+.nav-links a.nav-cta::after { display:none; }
+.hamburger { display:none; cursor:pointer; background:none; border:none; flex-direction:column; gap:5px; padding:6px; }
+.hamburger span { display:block; width:22px; height:2px; background:var(--bark); border-radius:1px; }
+.mobile-menu { display:none; position:fixed; top:56px; left:0; right:0; background:rgba(251,247,237,0.98); backdrop-filter:blur(12px); border-bottom:2px solid var(--wood-border); padding:1rem 2rem; z-index:99; flex-direction:column; gap:0.5rem; }
+.mobile-menu.open { display:flex; }
+.mobile-menu a { color:var(--dark); text-decoration:none; font-size:0.88rem; padding:0.6rem 0; border-bottom:1px solid var(--wood-pale); font-weight:500; }
+@media(max-width:768px){.hamburger:focus{outline:2px solid var(--gold);outline-offset:2px} .hamburger{display:flex} .nav-links{display:none} }
+@media(min-width:769px){.mobile-menu,.mob-menu{display:none!important}}
+
+/* ─── HERO (Grand Line style) ─── */
+.hero {
+  min-height:100vh;
+  background:linear-gradient(160deg, #0B1929 0%, #0F3444 35%, #0D4A56 60%, #134E4A 100%);
+  position:relative; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+  padding:6rem 2rem 4rem; text-align:center; color:var(--white);
+}
+.compass-ring {
+  position:absolute; top:50%; left:50%;
+  border:1px solid rgba(198,169,106,0.06); border-radius:50%;
+  pointer-events:none;
+  animation:compassSpin 120s linear infinite;
+}
+.compass-ring-1 { width:600px; height:600px; margin:-300px 0 0 -300px; }
+.compass-ring-2 { width:800px; height:800px; margin:-400px 0 0 -400px; border-color:rgba(13,148,136,0.05); animation-direction:reverse; animation-duration:90s; }
+.compass-ring-3 { width:1000px; height:1000px; margin:-500px 0 0 -500px; border-color:rgba(198,169,106,0.03); animation-duration:150s; }
+@keyframes compassSpin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+
+.float-icon {
+  position:absolute; font-size:1.6rem; opacity:0.08;
+  animation:iconFloat 12s ease-in-out infinite; pointer-events:none; z-index:1;
+}
+@keyframes iconFloat {
+  0%,100% { transform:translateY(0) rotate(0deg); opacity:0.06; }
+  50% { transform:translateY(-20px) rotate(8deg); opacity:0.12; }
+}
+
+.hero-content { position:relative; z-index:2; max-width:700px; }
+
+.hero-badge {
+  display:inline-block; padding:0.35rem 1.4rem;
+  border:1px solid rgba(198,169,106,0.3); border-radius:30px;
+  color:var(--gold); font-size:0.6rem; font-weight:700; letter-spacing:4px;
+  margin-bottom:2rem; animation:fadeInDown 1s ease-out;
+}
+.hero h1 {
+  font-size:4rem; font-weight:900; letter-spacing:6px; line-height:1.05;
+  margin-bottom:1.2rem; animation:fadeInUp 1s ease-out 0.2s both;
+}
+.hero h1 em { font-style:normal; color:var(--gold); display:block; font-size:5rem; letter-spacing:12px; }
+.hero-divider {
+  display:flex; align-items:center; justify-content:center; gap:1rem;
+  margin-bottom:1.5rem; animation:fadeIn 1s ease-out 0.5s both;
+}
+.hero-divider .line { display:block; width:60px; height:1px; background:linear-gradient(90deg, transparent, rgba(198,169,106,0.4), transparent); }
+.hero-divider .diamond { color:var(--gold); font-size:0.6rem; opacity:0.6; }
+.hero .tagline {
+  font-size:1.15rem; font-style:italic; color:var(--gold); opacity:0.9;
+  margin-bottom:2rem; font-weight:300; letter-spacing:0.5px;
+  animation:fadeIn 1s ease-out 0.7s both;
+}
+.hero-story { animation:fadeIn 1.2s ease-out 0.9s both; }
+.hero-story p {
+  font-size:0.92rem; color:rgba(255,255,255,0.6); line-height:1.9;
+  margin-bottom:1rem; font-weight:300;
+}
+.hero-story .hero-bold { color:rgba(255,255,255,0.85)!important; font-weight:500!important; font-size:1rem!important; }
+.hero .cta-button {
+  background:linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color:#0F1923; border:none; padding:1rem 2.8rem;
+  font-size:0.85rem; font-weight:800; letter-spacing:2px; border-radius:40px;
+  cursor:pointer; transition:all 0.4s; display:inline-flex; align-items:center; gap:0.6rem;
+  text-decoration:none; animation:fadeIn 1s ease-out 1.2s both;
+}
+.hero .cta-button:hover { transform:translateY(-3px); box-shadow:0 12px 35px rgba(198,169,106,0.35); }
+.hero-stats {
+  display:flex; align-items:center; justify-content:center; gap:1.2rem;
+  margin-top:2.5rem; animation:fadeIn 1s ease-out 1.5s both;
+}
+.stat { display:flex; flex-direction:column; align-items:center; }
+.stat-num { font-size:1.5rem; font-weight:800; color:var(--white); letter-spacing:1px; }
+.stat-label { font-size:0.6rem; font-weight:600; letter-spacing:2px; color:rgba(255,255,255,0.35); text-transform:uppercase; }
+.stat-sep { color:rgba(255,255,255,0.15); font-size:1.2rem; }
+
+@keyframes fadeInDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeInUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+/* ─── STORY TRANSITION ─── */
+.story-bridge {
+  background:linear-gradient(180deg, #134E4A 0%, var(--bg) 100%);
+  padding:4rem 2rem 3rem; text-align:center;
+}
+.story-bridge p {
+  font-size:0.95rem; color:rgba(255,255,255,0.7); max-width:600px;
+  margin:0 auto; line-height:1.9; font-weight:300;
+}
+.story-bridge .bridge-gold { color:var(--gold); font-weight:600; }
+
+/* ─── GLOSSARY / "SPEAKING OUR LANGUAGE" ─── */
+.glossary-section {
+  max-width:1100px; margin:0 auto; padding:4rem 2rem 3rem;
+}
+.glossary-header { text-align:center; margin-bottom:3rem; }
+.glossary-header h2 { font-size:1.8rem; font-weight:800; color:var(--bark); margin-bottom:0.5rem; }
+.glossary-header p { color:var(--gray); font-size:0.9rem; max-width:560px; margin:0 auto; line-height:1.8; }
+
+.glossary-grid {
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:2rem;
+}
+.gloss-card {
+  background:var(--white); border:2px solid var(--border); border-radius:16px;
+  padding:2rem; position:relative; overflow:hidden;
+  transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+.gloss-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:4px;
+  transition:height 0.3s ease;
+}
+.gloss-card:hover { transform:translateY(-8px); box-shadow:var(--shadow-lg); border-color:var(--teal-pale); }
+.gloss-card:hover::before { height:6px; }
+.gloss-icon { font-size:2.8rem; margin-bottom:1rem; display:block; }
+.gloss-term { font-size:1.15rem; font-weight:800; color:var(--dark); margin-bottom:0.2rem; }
+.gloss-origin { font-size:0.7rem; font-weight:600; letter-spacing:1.5px; color:var(--gray-light); text-transform:uppercase; margin-bottom:0.8rem; }
+.gloss-meaning { font-size:0.85rem; color:var(--gray); line-height:1.8; margin-bottom:1rem; }
+.gloss-link {
+  display:inline-flex; align-items:center; gap:0.4rem;
+  font-size:0.78rem; font-weight:700; letter-spacing:0.5px;
+  padding:0.4rem 1rem; border-radius:20px; transition:all 0.3s;
+}
+.gloss-link:hover { transform:translateY(-2px); }
+
+/* card-specific top borders */
+.gloss-card.grand-line::before { background:linear-gradient(90deg, #0D9488, #134E4A); }
+.gloss-card.treasures::before { background:linear-gradient(90deg, #C6A96A, #8B6914); }
+.gloss-card.classes::before { background:linear-gradient(90deg, #B23026, #C6A96A); }
+.gloss-card.materials::before { background:linear-gradient(90deg, #0F766E, #14B8A6); }
+
+/* ─── HOW IT WORKS ─── */
+.how-section {
+  background:var(--wood-bg); border-top:3px solid var(--wood-border); border-bottom:3px solid var(--wood-border);
+  padding:4rem 2rem; text-align:center; position:relative; overflow:hidden;
+}
+.how-header h2 { font-size:1.5rem; font-weight:800; color:var(--bark); margin-bottom:0.3rem; }
+.how-header p { color:var(--wood); font-style:italic; font-size:0.88rem; max-width:500px; margin:0 auto 2.5rem; line-height:1.7; }
+.how-steps {
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+  gap:1.5rem; max-width:900px; margin:0 auto;
+}
+.how-step {
+  background:var(--white); border-radius:14px; padding:1.8rem 1.2rem;
+  border:1px solid var(--wood-pale); transition:all 0.3s; position:relative;
+}
+.how-step:hover { box-shadow:var(--shadow-md); transform:translateY(-3px); border-color:var(--teal-pale); }
+.step-num {
+  width:32px; height:32px; border-radius:50%; background:var(--wood);
+  color:white; display:flex; align-items:center; justify-content:center;
+  font-size:0.75rem; font-weight:800; margin:0 auto 1rem;
+}
+.how-step .step-icon { font-size:2rem; margin-bottom:0.6rem; }
+.how-step h4 { font-size:0.9rem; font-weight:700; color:var(--dark); margin-bottom:0.4rem; }
+.how-step p { font-size:0.78rem; color:var(--gray); line-height:1.7; }
+
+/* ─── QUICK DESTINATIONS ─── */
+.destinations {
+  max-width:1000px; margin:0 auto; padding:4rem 2rem;
+}
+.dest-header { text-align:center; margin-bottom:2.5rem; }
+.dest-header h2 { font-size:1.5rem; font-weight:800; color:var(--bark); margin-bottom:0.4rem; }
+.dest-header p { color:var(--gray); font-size:0.88rem; }
+.dest-grid {
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1.5rem;
+}
+.dest-card {
+  display:flex; flex-direction:column; align-items:center; text-align:center;
+  background:var(--white); border:2px solid var(--border); border-radius:16px;
+  padding:2rem 1.5rem; text-decoration:none; transition:all 0.4s;
+  position:relative; overflow:hidden;
+}
+.dest-card::before {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:4px;
+  transition:height 0.3s;
+}
+.dest-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
+.dest-card:hover::before { height:6px; }
+.dest-card .dest-emoji { font-size:2.5rem; margin-bottom:0.8rem; }
+.dest-card h3 { font-size:1rem; font-weight:800; color:var(--dark); margin-bottom:0.3rem; }
+.dest-card .dest-sub { font-size:0.75rem; color:var(--gray); font-weight:500; margin-bottom:0.8rem; line-height:1.6; }
+.dest-card .dest-count {
+  font-size:0.65rem; font-weight:700; letter-spacing:1px; padding:0.2rem 0.8rem;
+  border-radius:20px; color:var(--white);
+}
+.dest-card.gl::before { background:var(--teal); }
+.dest-card.gl .dest-count { background:var(--teal); }
+.dest-card.tr::before { background:var(--gold); }
+.dest-card.tr .dest-count { background:var(--gold); color:var(--dark); }
+.dest-card.mt::before { background:var(--teal-dark); }
+.dest-card.mt .dest-count { background:var(--teal-dark); }
+.dest-card.ro::before { background:var(--wood); }
+.dest-card.ro .dest-count { background:var(--wood); }
+
+/* ─── SPIRIT QUOTE ─── */
+.spirit {
+  background:linear-gradient(160deg, #0B1929 0%, #134E4A 100%);
+  padding:4rem 2rem; text-align:center; position:relative; overflow:hidden;
+}
+.spirit::before {
+  content:''; position:absolute; top:50%; left:50%;
+  width:400px; height:400px; margin:-200px 0 0 -200px;
+  border:1px solid rgba(198,169,106,0.06); border-radius:50%;
+  animation:compassSpin 90s linear infinite;
+}
+.spirit blockquote {
+  font-size:1.3rem; font-weight:300; color:rgba(255,255,255,0.7);
+  font-style:italic; max-width:600px; margin:0 auto 1rem;
+  position:relative; z-index:1; line-height:1.8;
+}
+.spirit .quote-gold { color:var(--gold); font-weight:600; }
+.spirit .quote-attr {
+  font-size:0.7rem; font-weight:600; letter-spacing:3px; color:rgba(198,169,106,0.5);
+  text-transform:uppercase;
+}
+
+/* ─── FOOTER ─── */
+footer { text-align:center; padding:3rem 2rem; background:#134E4A; color:#fff; }
+footer .brand { font-size:1.2rem; font-weight:800; letter-spacing:4px; color:#C6A96A; }
+footer .tagline { font-size:0.75rem; color:rgba(255,255,255,0.7); margin:0.5rem 0 1.5rem; }
+footer .flinks { display:flex; justify-content:center; gap:1.5rem; flex-wrap:wrap; margin-bottom:1.5rem; }
+footer .flinks a { color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.72rem; letter-spacing:1px; transition:color 0.2s; }
+footer .flinks a:hover { color:#C6A96A; }
+footer .copy { font-size:0.65rem; color:rgba(255,255,255,0.4); }
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:768px) {
+  .hero h1 { font-size:2.5rem; }
+  .hero h1 em { font-size:3rem; letter-spacing:6px; }
+  .hero { padding:5rem 1.5rem 3rem; min-height:auto; }
+  .glossary-grid { grid-template-columns:1fr; }
+  .how-steps { grid-template-columns:1fr; }
+  .dest-grid { grid-template-columns:1fr; }
+  .hero-stats { flex-wrap:wrap; }
+}
+@media(max-width:414px) {
+  .hero h1 { font-size:2rem; }
+  .hero h1 em { font-size:2.5rem; }
+}
+</style>
+</head><body>
+
+<!-- ═══ NAV ═══ -->
+<nav class="nav">
+  <a class="nav-logo" href="index.html">
+    <div class="logo-wrap"><img src="data:image/jpeg;base64,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" alt="D. Learn"></div>
+    <div class="brand"><span class="brand-name">D. LEARN</span><span class="brand-sub">D. Insights Freedom Platform</span></div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html" class="active">HOME</a>
+    <a href="blog.html">GRAND LINE</a>
+    <a href="bites.html">TREASURES</a>
+    <a href="materials.html">ACADEMY</a>
+    <a href="contact.html" class="nav-cta">REACH OUT</a>
+  </div>
+  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="blog.html">Grand Line</a>
+  <a href="bites.html">Treasures</a>
+  <a href="materials.html">Academy</a>
+  <a href="contact.html" class="mob-cta">Reach Out</a>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="compass-ring compass-ring-1"></div>
+  <div class="compass-ring compass-ring-2"></div>
+  <div class="compass-ring compass-ring-3"></div>
+
+  <span class="float-icon" style="top:10%;left:6%;animation-delay:0s">&#9875;</span>
+  <span class="float-icon" style="top:20%;right:10%;animation-delay:2s">&#128214;</span>
+  <span class="float-icon" style="top:60%;left:4%;animation-delay:4s">&#128161;</span>
+  <span class="float-icon" style="bottom:18%;right:7%;animation-delay:1s">&#127891;</span>
+  <span class="float-icon" style="top:38%;left:2%;animation-delay:3s">&#9878;</span>
+  <span class="float-icon" style="bottom:28%;left:14%;animation-delay:5s">&#127758;</span>
+  <span class="float-icon" style="top:28%;right:4%;animation-delay:2.5s">&#128218;</span>
+  <span class="float-icon" style="bottom:12%;right:16%;animation-delay:1.5s">&#9733;</span>
+
+  <div class="hero-content">
+    <div class="hero-badge">WELCOME TO D. LEARN</div>
+    <h1>KNOWLEDGE<br><em>THAT BUILDS</em></h1>
+    <div class="hero-divider">
+      <span class="line"></span>
+      <span class="diamond">&#9670;</span>
+      <span class="line"></span>
+    </div>
+    <p class="tagline">"The world doesn't give you permission to dream. You take it."</p>
+    <div class="hero-story">
+      <p>D. Learn is a free educational platform built for people who refuse to stop growing. Construction professionals, business builders, marketers, healthcare workers, tech enthusiasts, and dreamers of every kind.</p>
+      <p class="hero-bold">263+ articles. 800+ quick-fire tips. 16 professional paths. Zero cost. One epic journey.</p>
+    </div>
+    <a href="#explore" class="cta-button"><span>&#9875;</span> START EXPLORING</a>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">263+</span><span class="stat-label">Articles</span></div>
+      <div class="stat-sep">&middot;</div>
+      <div class="stat"><span class="stat-num">800+</span><span class="stat-label">Treasures</span></div>
+      <div class="stat-sep">&middot;</div>
+      <div class="stat"><span class="stat-num">16</span><span class="stat-label">Paths</span></div>
+      <div class="stat-sep">&middot;</div>
+      <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Free</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STORY BRIDGE (dark to light) ═══ -->
+<div class="story-bridge">
+  <p>We use the language of <span class="bridge-gold">exploration and adventure</span> because learning is exactly that — a journey into the unknown, with rewards for those brave enough to keep going. Here's how to navigate our world.</p>
+</div>
+
+<!-- ═══ GLOSSARY: "Speaking Our Language" ═══ -->
+<section class="glossary-section" id="explore">
+  <div class="glossary-header">
+    <h2>&#127758; Speaking Our Language</h2>
+    <p>D. Learn borrows from the spirit of One Piece — the greatest adventure story ever told. Every explorer needs to know the map before setting sail.</p>
+  </div>
+
+  <div class="glossary-grid">
+
+    <!-- Grand Line -->
+    <div class="gloss-card grand-line">
+      <span class="gloss-icon">&#9961;</span>
+      <div class="gloss-term">The Grand Line</div>
+      <div class="gloss-origin">Inspired by One Piece's legendary sea route</div>
+      <div class="gloss-meaning">Our main article library. In the anime, the Grand Line is the most dangerous and rewarding sea route in the world — only the bravest sail it. Here, it's where the real knowledge lives: 263+ in-depth articles organized into 16 professional "classes" like The Captain (leadership), The Builder (construction), and The Merchant (sales).</div>
+      <a href="blog.html" class="gloss-link" style="background:var(--teal-pale);color:var(--teal-dark);">&#9875; Enter the Grand Line</a>
+    </div>
+
+    <!-- Treasures -->
+    <div class="gloss-card treasures">
+      <span class="gloss-icon">&#128161;</span>
+      <div class="gloss-term">Treasures</div>
+      <div class="gloss-origin">Every pirate crew hunts for treasure</div>
+      <div class="gloss-meaning">Quick-fire wisdom in one or two sentences. 800+ bite-sized tips that shuffle every time you visit — like finding gold coins scattered across an island. Filter by topic (PMO, marketing, sales, quality, feasibility...) and collect gems you can use immediately. No reading commitment — just instant insight.</div>
+      <a href="bites.html" class="gloss-link" style="background:var(--wood-pale);color:var(--wood-dark);">&#128161; Discover Treasures</a>
+    </div>
+
+    <!-- Classes -->
+    <div class="gloss-card classes">
+      <span class="gloss-icon">&#9876;</span>
+      <div class="gloss-term">Classes</div>
+      <div class="gloss-origin">RPG character archetypes for real life</div>
+      <div class="gloss-meaning">In role-playing games, you choose a class that defines your abilities. We've mapped 16 real professional paths to RPG-inspired archetypes. The Captain leads. The Builder constructs. The Scholar analyzes data. The Healer saves lives. Choose your class in the Grand Line and unlock articles written specifically for your path.</div>
+      <a href="blog.html" class="gloss-link" style="background:rgba(178,48,38,0.1);color:var(--bark);">&#9876; Choose Your Class</a>
+    </div>
+
+    <!-- Materials -->
+    <div class="gloss-card materials">
+      <span class="gloss-icon">&#127891;</span>
+      <div class="gloss-term">Academy</div>
+      <div class="gloss-origin">Tools for the journey ahead</div>
+      <div class="gloss-meaning">When you need structured resources — workshop kits, training guides, downloadable frameworks — the Academy section is your supply dock. These are the tools you bring aboard before setting sail: practical, ready-to-use, designed for teams and individuals who want to level up with a plan.</div>
+      <a href="materials.html" class="gloss-link" style="background:var(--teal-pale);color:var(--teal-dark);">&#127891; Browse Academy</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ HOW IT WORKS ═══ -->
+<section class="how-section">
+  <div class="how-header">
+    <h2>&#129517; How the Journey Works</h2>
+    <p>No sign-ups. No paywalls. No hidden doors. Just pick a path and start walking.</p>
+  </div>
+  <div class="how-steps">
+    <div class="how-step">
+      <div class="step-num">1</div>
+      <div class="step-icon">&#128214;</div>
+      <h4>Pick a Destination</h4>
+      <p>Head to the <strong>Grand Line</strong> for deep articles, or <strong>Treasures</strong> for quick tips. Both are free and open to everyone.</p>
+    </div>
+    <div class="how-step">
+      <div class="step-num">2</div>
+      <div class="step-icon">&#9876;</div>
+      <h4>Choose Your Class</h4>
+      <p>Inside the Grand Line, 16 professional "classes" organize everything — from construction to healthcare to marketing. Find yours.</p>
+    </div>
+    <div class="how-step">
+      <div class="step-num">3</div>
+      <div class="step-icon">&#128218;</div>
+      <h4>Read & Practice</h4>
+      <p>Every article ends with an <strong>Applied Practice</strong> section — real exercises so you don't just learn it, you <em>use</em> it.</p>
+    </div>
+    <div class="how-step">
+      <div class="step-num">4</div>
+      <div class="step-icon">&#128640;</div>
+      <h4>Keep Exploring</h4>
+      <p>There's no end. New articles, new treasures, new paths. The Grand Line doesn't wait — and neither should you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ QUICK DESTINATIONS ═══ -->
+<section class="destinations">
+  <div class="dest-header">
+    <h2>Where Do You Want to Go?</h2>
+    <p>Four ports of call. Each one leads somewhere different.</p>
+  </div>
+  <div class="dest-grid">
+    <a href="blog.html" class="dest-card gl">
+      <span class="dest-emoji">&#9961;</span>
+      <h3>The Grand Line</h3>
+      <div class="dest-sub">Full articles organized by 16 professional classes. Deep knowledge for serious explorers.</div>
+      <span class="dest-count">263+ ARTICLES</span>
+    </a>
+    <a href="bites.html" class="dest-card tr">
+      <span class="dest-emoji">&#128161;</span>
+      <h3>Treasures</h3>
+      <div class="dest-sub">Quick-fire tips and wisdom bites that shuffle every visit. Instant insight, zero commitment.</div>
+      <span class="dest-count">800+ TIPS</span>
+    </a>
+    <a href="materials.html" class="dest-card mt">
+      <span class="dest-emoji">&#127891;</span>
+      <h3>Academy</h3>
+      <div class="dest-sub">Downloadable guides, workshop kits, and training frameworks. Gear up for the journey.</div>
+      <span class="dest-count">RESOURCES</span>
+    </a>
+    <a href="contact.html" class="dest-card ro">
+      <span class="dest-emoji">&#128232;</span>
+      <h3>Reach Out</h3>
+      <div class="dest-sub">Questions, partnerships, or just want to say hello? We'd love to hear from fellow explorers.</div>
+      <span class="dest-count">CONTACT</span>
+    </a>
+  </div>
+</section>
+
+<!-- ═══ SPIRIT QUOTE ═══ -->
+<section class="spirit">
+  <blockquote>"Nothing wrong with <span class="quote-gold">existing</span> — but everything right with <span class="quote-gold">living</span>."</blockquote>
+  <div class="quote-attr">&#8212; THE D. LEARN PHILOSOPHY</div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="brand">D. LEARN</div>
+  <div class="tagline">Knowledge That Builds.</div>
+  <div class="flinks">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Grand Line</a>
+    <a href="bites.html">Treasures</a>
+    <a href="materials.html">Academy</a>
+    <a href="contact.html">Reach Out</a>
+  </div>
+  <div class="copy">&copy; 2026 D. Insights &middot; D. Learn &middot; All rights reserved</div>
+  <div style="text-align:center;padding:1rem 0;border-top:1px solid rgba(139,105,20,0.15);margin-top:1rem">
+    <span style="font-size:0.65rem;font-weight:700;letter-spacing:2px;color:#8B6914">D. INSIGHTS FAMILY</span><br>
+    <a rel="noopener noreferrer" href="https://d-projects2026.github.io/dinsights/" style="color:#0D9488;font-size:0.75rem;font-weight:600;margin:0.3rem 0.8rem" target="_blank">D. Insights</a>
+    <a rel="noopener noreferrer" href="https://d-projects2026.github.io/dprojects/" style="color:#0D9488;font-size:0.75rem;font-weight:600;margin:0.3rem 0.8rem" target="_blank">D. Projects</a>
+  </div>
+</footer>
+
+<script>
+const h=document.querySelector('.hamburger'),m=document.querySelector('.mobile-menu');
+if(h)h.addEventListener('click',()=>m.classList.toggle('open'));
+
+// Smooth scroll for CTA
+document.querySelector('.cta-button')?.addEventListener('click',function(e){
+  e.preventDefault();
+  const t=document.querySelector(this.getAttribute('href'));
+  if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+});
+</script>
+</body></html>
