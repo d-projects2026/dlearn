@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Prompt Engineering: How to Talk to AI &mdash; D. Learn</title>
+
+<style>
+:root {
+  /* Teal palette */
+  --teal: #0D9488; --teal-dark: #0F766E; --teal-deep: #134E4A;
+  --teal-light: #14B8A6; --teal-pale: #CCFBF1; --teal-bg: #F0FDFA;
+  /* Wooden palette */
+  --wood: #8B6914; --wood-light: #A6842B; --wood-dark: #6B4F10;
+  --wood-pale: #F5ECD7; --wood-border: #E6D5A8; --wood-bg: #FBF7ED;
+  --bark: #5C3D0E; --bark-light: #7A5A28;
+  /* Sand (warm neutral) */
+  --sand: #FEF7E8; --sand-border: #F5E6C8;
+  /* Base */
+  --bg: #FAFCFC; --white: #FFFFFF;
+  --dark: #1E293B; --dark2: #334155;
+  --gold: #C6A96A; --gold-light: #D4BC85;
+  --gray: #64748B; --gray-light: #94A3B8; --gray-pale: #CBD5E1;
+  --border: #E2E8F0;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.08);
+  --red: #B23026; --green: #2D8B4E; --blue: #2A6496;
+  --orange: #C27A32; --purple: #6B4C8A;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--dark); line-height:1.7; overflow-x:hidden; }
+a { color:var(--teal); text-decoration:none; }
+::selection { background:var(--teal-pale); color:var(--dark); }
+
+/* ─── NAV with wooden accent ─── */
+
+@media(max-width:768px){   }
+
+/* ─── DECORATIVE SHAPES ─── */
+.shape { position:absolute; pointer-events:none; opacity:0.07; font-size:3rem; user-select:none; z-index:0; }
+
+/* ─── WOODEN SECTION DIVIDER ─── */
+.wood-divider {
+  height:4px; background:linear-gradient(90deg, transparent 0%, var(--wood-border) 15%, var(--wood) 50%, var(--wood-border) 85%, transparent 100%);
+  margin:0; border:none;
+}
+
+/* FOOTER — wooden themed */
+footer { background:linear-gradient(180deg, var(--bark) 0%, var(--wood-dark) 100%); text-align:center; padding:2.5rem 2rem; }
+footer .brand { font-size:1rem; font-weight:700; letter-spacing:4px; color:var(--wood-pale); margin-bottom:0.3rem; }
+footer .tagline { color:var(--wood-light); font-style:italic; font-size:0.82rem; margin-bottom:1rem; }
+footer .flinks { margin-bottom:1rem; }
+footer .flinks a { color:var(--wood-border); text-decoration:none; font-size:0.72rem; letter-spacing:1px; margin:0 0.7rem; transition:color 0.3s; }
+footer .flinks a:hover { color:var(--white); }
+footer .copy { font-size:0.62rem; color:rgba(255,255,255,0.35); }
+
+.art-hero{padding:5rem 2rem 2.5rem;text-align:center;background:linear-gradient(170deg,var(--wood-bg) 0%,var(--teal-bg) 100%);position:relative;overflow:hidden}
+.art-hero .badge{display:inline-block;padding:0.2rem 0.8rem;border-radius:20px;font-size:0.6rem;font-weight:700;letter-spacing:1.5px;color:white;margin-bottom:0.8rem;background:#6B4C8A}
+.art-hero h1{font-size:1.7rem;font-weight:800;color:var(--bark);max-width:600px;margin:0 auto 0.5rem}
+.art-hero .art-story{font-style:italic;color:var(--wood);font-size:0.88rem;max-width:500px;margin:0 auto 0.5rem;line-height:1.7}
+.art-hero p{color:var(--gray);font-size:0.85rem;max-width:500px;margin:0 auto}
+.art-hero .meta{margin-top:0.8rem;font-size:0.75rem;color:var(--gray-light);display:flex;justify-content:center;gap:1.2rem}
+
+.art-body{max-width:760px;margin:2rem auto;padding:0 2rem}
+.art-section{margin-bottom:2.2rem}
+.art-section h2{font-size:1.08rem;font-weight:700;color:var(--dark);margin-bottom:0.6rem;padding-bottom:0.3rem;border-bottom:2px solid var(--wood-pale)}
+.art-para{color:var(--gray);font-size:0.88rem;line-height:1.9}
+.art-step{display:flex;gap:0.8rem;margin:0.7rem 0}
+.art-sn{min-width:26px;height:26px;border-radius:50%;background:#6B4C8A;color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.7rem;flex-shrink:0;margin-top:0.15rem}
+.art-step h4{font-size:0.85rem;font-weight:600;color:var(--dark);margin-bottom:0.1rem}
+.art-step p{font-size:0.8rem;color:var(--gray);line-height:1.7}
+.art-tip{background:var(--wood-bg);border-left:3px solid #6B4C8A;padding:0.8rem 1rem;border-radius:0 10px 10px 0;margin-top:0.8rem}
+.art-tip .tl{font-size:0.65rem;font-weight:700;letter-spacing:1.5px;color:#6B4C8A;margin-bottom:0.2rem}
+.art-tip p{font-size:0.8rem;color:var(--gray);line-height:1.7}
+.art-bottom{text-align:center;padding:2rem 0;margin-top:1rem;border-top:2px solid var(--wood-pale)}
+.art-bottom a{color:var(--teal);font-weight:600;font-size:0.88rem}
+.art-bite-cta{background:var(--sand);border:2px solid var(--wood-border);border-radius:14px;padding:1.2rem 1.5rem;text-align:center;margin:1.5rem 0}
+.art-bite-cta p{font-size:0.82rem;color:var(--dark2)}
+.art-bite-cta a{color:var(--teal);font-weight:600}
+.related-row{max-width:800px;margin:0 auto 2rem;padding:0 2rem}
+.related-row h3{font-size:0.95rem;font-weight:700;color:var(--bark);margin-bottom:0.8rem}
+.rr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0.8rem}
+.rr-card{background:var(--white);border:1px solid var(--wood-pale);border-radius:10px;padding:1rem;text-decoration:none;transition:all 0.3s;display:block}
+.rr-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.rr-card 
+.rr-card 
+.rr-card h4{font-size:0.82rem;font-weight:600;color:var(--dark)}
+  @media(max-width:400px){
+   }
+
+/* === FOOTER === */
+footer{text-align:center;padding:3rem 2rem;background:#134E4A;color:#fff}
+footer .brand{font-size:1.2rem;font-weight:800;letter-spacing:4px;color:#C6A96A}
+footer .tagline{font-size:0.75rem;color:rgba(255,255,255,0.7);margin:0.5rem 0 1.5rem}
+footer .flinks{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+footer .flinks a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.72rem;letter-spacing:1px;transition:color 0.2s}
+footer .flinks a:hover{color:#C6A96A}
+footer .copy{font-size:0.65rem;color:rgba(255,255,255,0.4)}
+
+@media(min-width:769px){}
+
+/* === NAV (canonical) === */
+.nav { position:sticky; top:0; z-index:100; background:rgba(251,247,237,0.95); backdrop-filter:blur(14px); border-bottom:2px solid var(--wood-border); padding:0.6rem 2rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+.nav-logo { display:flex; align-items:center; gap:0.65rem; text-decoration:none; flex-shrink:0; }
+.nav-logo .logo-wrap { width:42px; height:42px; border-radius:10px; background:transparent; display:flex; align-items:center; justify-content:center; overflow:hidden; flex-shrink:0; border:2px solid var(--wood-border); }
+.nav-logo .logo-wrap img { height:34px; width:34px; object-fit:contain; }
+.nav-logo .brand { display:flex; flex-direction:column; }
+.nav-logo .brand-name { font-size:1.05rem; font-weight:800; color:var(--bark); letter-spacing:1.5px; line-height:1.15; }
+.nav-logo .brand-sub { font-size:0.52rem; color:var(--wood-light); letter-spacing:0.6px; font-weight:500; line-height:1.2; }
+.nav-links { display:flex; gap:1.6rem; align-items:center; }
+.nav-links a { color:var(--bark-light); text-decoration:none; font-size:0.76rem; font-weight:600; letter-spacing:1.2px; transition:all 0.3s; padding:0.3rem 0; position:relative; }
+.nav-links a::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--teal); border-radius:1px; transform:scaleX(0); transition:transform 0.3s; }
+.nav-links a:hover { color:var(--teal); }
+.nav-links a:hover::after { transform:scaleX(1); }
+.nav-links a.active { color:var(--teal); }
+.nav-links a.active::after { transform:scaleX(1); }
+.nav-links a.nav-cta { background:var(--teal); color:#fff!important; padding:0.4rem 1rem; border-radius:6px; font-size:0.7rem; font-weight:700; letter-spacing:1px; }
+.nav-links a.nav-cta::after { display:none; }
+.hamburger { display:none; cursor:pointer; background:none; border:none; flex-direction:column; gap:5px; padding:6px; }
+.hamburger span { display:block; width:22px; height:2px; background:var(--bark); border-radius:1px; }
+.mobile-menu { display:none; position:fixed; top:56px; left:0; right:0; background:rgba(251,247,237,0.98); backdrop-filter:blur(12px); border-bottom:2px solid var(--wood-border); padding:1rem 2rem; z-index:99; flex-direction:column; gap:0.5rem; }
+.mobile-menu.open { display:flex; }
+.mobile-menu a { color:var(--dark); text-decoration:none; font-size:0.88rem; padding:0.6rem 0; border-bottom:1px solid var(--wood-pale); font-weight:500; }
+@media(max-width:768px){.hamburger:focus{outline:2px solid var(--gold, #C6A96A);outline-offset:2px} .hamburger{display:flex} .nav-links{display:none} }
+@media(min-width:769px){.mobile-menu,.mob-menu{display:none!important}}
+
+/* DYNAMIC PATH NAVIGATOR */
+.path-nav{max-width:800px;margin:2rem auto;padding:0 1.5rem}
+.path-class-bar{display:flex;align-items:center;gap:0.6rem;padding:0.8rem 1rem;background:linear-gradient(135deg,#F0FDFA,#FBF7ED);border:1px solid #E6D5A8;border-radius:10px 10px 0 0;cursor:default}
+.path-class-icon{font-size:1.3rem}
+.path-class-info{flex:1}
+.path-class-name{font-size:0.82rem;font-weight:700;letter-spacing:1px}
+.path-class-domain{font-size:0.7rem;color:#64748B}
+.path-class-link{font-size:0.72rem;font-weight:600;color:#0D9488;text-decoration:none;padding:0.3rem 0.8rem;border:1px solid #0D9488;border-radius:4px;white-space:nowrap;transition:all 0.3s}
+.path-class-link:hover{background:#0D9488;color:#fff}
+.path-progress{height:3px;background:#E2E8F0}
+.path-progress-fill{height:100%;transition:width 0.4s}
+.path-arrows{display:flex;border:1px solid #E6D5A8;border-top:none;border-radius:0 0 10px 10px;overflow:hidden}
+.path-arrow{flex:1;display:flex;align-items:center;gap:0.5rem;padding:0.8rem 1rem;text-decoration:none;color:#1E293B;font-size:0.8rem;transition:background 0.2s;background:#FAFCFC}
+.path-arrow:hover{background:#F0FDFA}
+.path-arrow.prev{justify-content:flex-start;border-right:1px solid #E6D5A8}
+.path-arrow.next{justify-content:flex-end;text-align:right}
+.path-arrow .arrow-icon{font-size:1.1rem;flex-shrink:0}
+.path-arrow .arrow-label{font-size:0.65rem;font-weight:600;letter-spacing:1px;color:#64748B;text-transform:uppercase}
+.path-arrow .arrow-title{font-size:0.78rem;font-weight:600}
+.path-arrow.disabled{opacity:0.35;pointer-events:none}
+.path-counter{text-align:center;font-size:0.68rem;color:#64748B;padding:0.3rem 0;letter-spacing:0.5px}
+@media(max-width:600px){
+  .path-arrows{flex-direction:column}
+  .path-arrow.prev{border-right:none;border-bottom:1px solid #E6D5A8}
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head><body>
+<nav class="nav">
+  <a class="nav-logo" href="index.html">
+    <div class="logo-wrap"><img src="data:image/jpeg;base64,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" alt="D. Learn"></div>
+    <div class="brand"><span class="brand-name">D. LEARN</span><span class="brand-sub">D. Insights Freedom Platform</span></div>
+  </a>
+  <div class="nav-links">
+      <a href="index.html">HOME</a>
+      <a href="blog.html">GRAND LINE</a>
+      <a href="bites.html">TREASURES</a>
+      <a href="materials.html">ACADEMY</a>
+      <a href="contact.html" class="nav-cta">REACH OUT</a>
+  </div>
+  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="blog.html">Grand Line</a>
+  <a href="bites.html">Treasures</a>
+  <a href="materials.html">Academy</a>
+  <a href="contact.html" class="mob-cta">Reach Out</a>
+</div>
+
+<div class="art-hero">
+  <span class="shape" style="top:12%;left:6%;font-size:3rem;transform:rotate(-12deg)">&#9650;</span>
+  <span class="shape" style="top:18%;right:8%;font-size:2.5rem;transform:rotate(18deg)">&#9679;</span>
+  <div class="badge">TECHNOLOGY</div>
+  <h1>Prompt Engineering: How to Talk to AI</h1>
+  <div class="art-story">We asked ChatGPT to help with a contract clause. Weak prompt: 'Analyze this contract.' Bad answer. Specific prompt: 'List potential risks in this clause, specific to MENA construction, considering Egyptian law and FIDIC precedent.' Excellent answer. This is the story of why how you ask matters.</div>
+  <p>The difference between a useless answer and a brilliant one is how you ask the question.</p>
+  <div class="meta"><span>&#9201; 8 min read</span><span>&#10003; Free Article</span></div>
+</div>
+<div class="art-body">
+  <div class="art-section"><h2>Prompts: The Interface Between You and AI</h2><div style="margin:1.5rem 0;text-align:center;overflow-x:auto;"><div style="max-width:650px;margin:1.5rem auto">
+<svg viewBox="0 0 650 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:650px;font-family:Inter,sans-serif">
+  <defs><filter id="s6"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.06"/></filter></defs>
+  <!-- Bad prompt -->
+  <rect x="10" y="10" width="300" height="230" rx="12" fill="#FEE2E2" stroke="#B23026" stroke-width="1.5" filter="url(#s6)"/>
+  <text x="160" y="35" text-anchor="middle" fill="#B23026" font-size="12" font-weight="700">&#128683; WEAK PROMPT</text>
+  <rect x="25" y="50" width="270" height="60" rx="8" fill="white" stroke="#FECACA" stroke-width="1"/>
+  <text x="35" y="72" fill="#334155" font-size="10" font-style="italic">"Help me with my</text>
+  <text x="35" y="88" fill="#334155" font-size="10" font-style="italic">construction project schedule"</text>
+  <text x="160" y="130" text-anchor="middle" fill="#B23026" font-size="9" font-weight="600">PROBLEMS:</text>
+  <text x="35" y="150" fill="#64748B" font-size="9">&#10060; No context — what type of project?</text>
+  <text x="35" y="168" fill="#64748B" font-size="9">&#10060; No specifics — what help exactly?</text>
+  <text x="35" y="186" fill="#64748B" font-size="9">&#10060; No format — what output do you want?</text>
+  <text x="35" y="204" fill="#64748B" font-size="9">&#10060; No constraints — timeline? budget?</text>
+  <text x="160" y="228" text-anchor="middle" fill="#B23026" font-size="9">Result: Generic, unusable response</text>
+  <!-- Good prompt -->
+  <rect x="340" y="10" width="300" height="230" rx="12" fill="#D1FAE5" stroke="#2D8B4E" stroke-width="1.5" filter="url(#s6)"/>
+  <text x="490" y="35" text-anchor="middle" fill="#2D8B4E" font-size="12" font-weight="700">&#9989; STRONG PROMPT</text>
+  <rect x="355" y="50" width="270" height="100" rx="8" fill="white" stroke="#A7F3D0" stroke-width="1"/>
+  <text x="365" y="70" fill="#334155" font-size="9" font-style="italic">"I'm a PM on a 24-month residential</text>
+  <text x="365" y="84" fill="#334155" font-size="9" font-style="italic">tower project in Cairo. Create a risk</text>
+  <text x="365" y="98" fill="#334155" font-size="9" font-style="italic">register template with 10 common risks,</text>
+  <text x="365" y="112" fill="#334155" font-size="9" font-style="italic">probability/impact scores, and mitigation</text>
+  <text x="365" y="126" fill="#334155" font-size="9" font-style="italic">strategies. Format as a table."</text>
+  <text x="490" y="168" text-anchor="middle" fill="#2D8B4E" font-size="9" font-weight="600">WHY IT WORKS:</text>
+  <text x="365" y="186" fill="#64748B" font-size="9">&#9989; Role + Context (PM, residential, Cairo)</text>
+  <text x="365" y="202" fill="#64748B" font-size="9">&#9989; Specific ask (risk register, 10 items)</text>
+  <text x="365" y="218" fill="#64748B" font-size="9">&#9989; Format requested (table)</text>
+  <text x="490" y="240" text-anchor="middle" fill="#2D8B4E" font-size="9">Result: Actionable, project-specific output</text>
+</svg>
+</div></div><div class="art-para">An AI model is powerful but passive. It responds to prompts. A good prompt is clear, specific, and contextual. A bad prompt is vague, generic, and assumptive. Think of it like asking a person for advice: 'What should I do?' is vague. 'I have a delay on the critical path due to material supply — how should I respond?' is specific. The specific question gets a useful answer.</div></div><div class="art-section"><h2>The Anatomy of a Strong Prompt</h2><div class="art-step"><div class="art-sn">1</div><div><h4>Role</h4><p>Tell the AI what role to play: 'You are an experienced construction project manager with 20 years in MENA.' This shapes the perspective of the answer.</p></div></div><div class="art-step"><div class="art-sn">2</div><div><h4>Context</h4><p>Give background: 'We're building a residential tower in Cairo. The timeline is 24 months. We're 6 months in, on schedule, within budget.' This prevents the AI giving generic advice that doesn't fit your situation.</p></div></div><div class="art-step"><div class="art-sn">3</div><div><h4>Task</h4><p>State what you want: 'Analyze the risks in this schedule and recommend mitigation strategies.' Clear task = focused answer.</p></div></div><div class="art-step"><div class="art-sn">4</div><div><h4>Format</h4><p>Specify how you want the answer: 'Provide a list of 5 risks with probability, impact, and mitigation for each.' This prevents rambling answers.</p></div></div><div class="art-tip"><div class="tl">&#128161; KEY TAKEAWAY</div><p>Template: 'You are [role]. Context: [background]. Task: [what you want]. Format: [how you want it]. Here's [relevant info].' This four-part structure applies to any prompt.</p></div></div><div class="art-section"><h2>Weak vs Strong Prompt Examples</h2><div class="art-step"><div class="art-sn">1</div><div><h4>Weak: 'How do I manage risk?'</h4><p>Generic answer: identify, analyze, monitor, respond. Applies to any project. Not useful. Too general.</p></div></div><div class="art-step"><div class="art-sn">2</div><div><h4>Strong: 'I'm a construction PM on a high-rise tower in Cairo. We've identified supply chain risk for steel — there's been a 3-month lead time increase. What specific mitigation steps should I take given the current Egyptian import environment and our 4-month window before we need delivery?'</h4><p>Specific answer addressing your exact situation: contact suppliers now, explore local fabrication, negotiate long-lead orders, etc. Actionable. Useful.</p></div></div><div class="art-step"><div class="art-sn">3</div><div><h4>Weak: 'Draft a contract clause'</h4><p>Generic output. Might not fit your needs. You'll need to rewrite it anyway.</p></div></div><div class="art-step"><div class="art-sn">4</div><div><h4>Strong: 'Draft a delay clause for an EPC contract under FIDIC Red Book 2017 standard, but modified for MENA context. Consider: force majeure events specific to Egypt, notice requirements, acceptable extension mechanisms, and cost adjustments. Format: a 300-word clause with clear conditions and remedies.'</h4><p>Specific output addressing your exact context. Much more likely to be usable.</p></div></div><div class="art-tip"><div class="tl">&#128161; KEY TAKEAWAY</div><p>Weak prompts make work. Strong prompts save work. Invest 2 minutes in writing a good prompt. That saves 30 minutes of reworking a generic answer.</p></div></div><div class="art-section"><h2>Common Construction Prompts</h2><div class="art-step"><div class="art-sn">1</div><div><h4>Schedule Analysis</h4><p>'Analyze this schedule for risks and float allocation. We're building [project type] in [location], [duration]. Identify: critical path, unrealistic durations, sequence risks.'</p></div></div><div class="art-step"><div class="art-sn">2</div><div><h4>Budget Analysis</h4><p>'We're tracking these cost actuals against this budget. Analyze variance by category. Forecast final cost. Identify cost drivers and mitigation opportunities.'</p></div></div><div class="art-step"><div class="art-sn">3</div><div><h4>Contract Review</h4><p>'Review this contract clause under FIDIC context. Identify: risks to contractor/client, ambiguities, enforcement challenges. Suggest improvements specific to [jurisdiction].'</p></div></div><div class="art-step"><div class="art-sn">4</div><div><h4>Risk Register</h4><p>'Create a risk register for a [project type] in [location]. Identify: top 10 risks, probability, impact, mitigation. Prioritize by criticality.'</p></div></div><div class="art-tip"><div class="tl">&#128161; KEY TAKEAWAY</div><p>Use these as templates. Adapt them to your project. The more specific, the better the answer.</p></div></div><div class="art-section"><h2>Iterating on Answers: The Follow-up</h2><div class="art-para">The AI gives an answer. It's 80% useful but missing one thing: deeper analysis on cost mitigation. Don't start a new prompt. Add context: 'Great. Now dive deeper on cost mitigation — what are specific cost reduction strategies without affecting quality or timeline?' This continues the conversation with all the context already established. Much more efficient.</div></div><div class="art-section"><h2>The Dos and Don'ts of Prompt Engineering</h2><div class="art-step"><div class="art-sn">1</div><div><h4>DO be specific</h4><p>Vague prompts get vague answers. Specific prompts get specific answers.</p></div></div><div class="art-step"><div class="art-sn">2</div><div><h4>DO give context</h4><p>The more background, the better the fit of the answer.</p></div></div><div class="art-step"><div class="art-sn">3</div><div><h4>DO specify format</h4><p>Tell it how to structure the answer: list, narrative, table, etc.</p></div></div><div class="art-step"><div class="art-sn">4</div><div><h4>DON'T assume the AI knows your industry</h4><p>It might not understand MENA-specific context. Tell it explicitly.</p></div></div><div class="art-step"><div class="art-sn">5</div><div><h4>DON'T trust without verification</h4><p>AI makes mistakes confidently. Always verify important facts.</p></div></div><div class="art-step"><div class="art-sn">6</div><div><h4>DON'T use it for decisions alone</h4><p>Use it to analyze options. You decide. AI is an advisor, not a decision-maker.</p></div></div><div class="art-tip"><div class="tl">&#128161; KEY TAKEAWAY</div><p>Treat the AI like a consultant: give them good information, ask focused questions, expect thorough analysis, then apply judgment. Never outsource judgment to the AI.</p></div></div>
+
+<div id="pathNavContainer"></div>
+<div id="relatedClassesContainer"></div>
+<script>
+const ARTICLE_CLASSES = [];
+const ARTICLE_SLUG = "blog-prompt-engineering.html";
+
+function renderPathNav() {
+  var pnc = document.getElementById('pathNavContainer');
+  var rcc = document.getElementById('relatedClassesContainer');
+  if (rcc) rcc.innerHTML = '';
+
+  if (!ARTICLE_CLASSES.length) {
+    pnc.innerHTML = '<div class="path-nav"><div class="path-class-bar" style="border-radius:10px"><span class="path-class-icon">\ud83e\udded</span><div class="path-class-info"><div class="path-class-name" style="color:#0D9488">Grand Line</div><div class="path-class-domain">Explore all articles and class paths</div></div><a href="blog.html" class="path-class-link">Browse Classes</a></div></div>';
+    return;
+  }
+
+  var c = ARTICLE_CLASSES[0];
+  var pct = ((c.index + 1) / c.total * 100).toFixed(0);
+
+  var prevHtml = '';
+  if (c.prev) {
+    prevHtml = '<a class="path-arrow prev" href="' + c.prev.slug + '"><span class="arrow-icon">&#8592;</span><div><div class="arrow-label">Previous</div><div class="arrow-title">' + c.prev.title + '</div></div></a>';
+  } else {
+    prevHtml = '<span class="path-arrow prev disabled"><span class="arrow-icon">&#8592;</span><div><div class="arrow-label">Start of Path</div><div class="arrow-title">You\'re at the beginning</div></div></span>';
+  }
+
+  var nextHtml = '';
+  if (c.next) {
+    nextHtml = '<a class="path-arrow next" href="' + c.next.slug + '"><div><div class="arrow-label">Next</div><div class="arrow-title">' + c.next.title + '</div></div><span class="arrow-icon">&#8594;</span></a>';
+  } else {
+    nextHtml = '<a class="path-arrow next" href="blog.html?class=' + c.id + '"><div><div class="arrow-label">Path Complete!</div><div class="arrow-title">Return to Grand Line</div></div><span class="arrow-icon">&#127942;</span></a>';
+  }
+
+  pnc.innerHTML = '<div class="path-nav">' +
+    '<div class="path-class-bar"><span class="path-class-icon"><img src="' + (c.badgeImg || '') + '" style="width:28px;height:28px;border-radius:50%" alt=""></span>' +
+    '<div class="path-class-info"><div class="path-class-name" style="color:' + c.color + '">' + c.name + '</div>' +
+    '<div class="path-class-domain">' + c.domain + '</div></div>' +
+    '<a href="blog.html?class=' + c.id + '" class="path-class-link">Return to Class</a></div>' +
+    '<div class="path-progress"><div class="path-progress-fill" style="width:' + pct + '%;background:' + c.color + '"></div></div>' +
+    '<div class="path-counter">Article ' + (c.index + 1) + ' of ' + c.total + ' in this path</div>' +
+    '<div class="path-arrows">' + prevHtml + nextHtml + '</div></div>';
+}
+
+renderPathNav();
+</script>
+<section style="max-width:800px;margin:3rem auto;padding:2rem;background:linear-gradient(135deg,#F0FDFA,#FBF7ED);border:1.5px solid #E6D5A8;border-radius:16px">
+  <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1rem">
+    <span style="font-size:1.5rem">🔬</span>
+    <h2 style="font-size:1.3rem;font-weight:800;color:#134E4A;margin:0">Applied Practice</h2>
+  </div>
+  <div style="background:#fff;border-radius:12px;padding:1.5rem;margin-bottom:1rem;border:1px solid #CCFBF1">
+    <h3 style="font-size:1rem;font-weight:700;color:#0F766E;margin-bottom:0.5rem">📋 Mini Case Study</h3>
+    <p style="color:#334155;font-size:0.9rem;line-height:1.8;margin-bottom:0.5rem"><strong>Scenario:</strong> A traditional engineering firm with 50 employees wants to adopt Prompt Engineering: How to Talk to AI but faces resistance from senior staff who've been doing things manually for 20+ years.</p>
+    <p style="color:#334155;font-size:0.9rem;line-height:1.8">Build a business case for adoption and design a phased implementation plan.</p>
+  </div>
+  <div style="background:#fff;border-radius:12px;padding:1.5rem;border:1px solid #CCFBF1">
+    <h3 style="font-size:1rem;font-weight:700;color:#0F766E;margin-bottom:0.5rem">✅ Your Action Items</h3>
+    <ol style="color:#334155;font-size:0.9rem;line-height:2;padding-left:1.2rem">
+      <li>Create a one-page business case showing ROI of adopting these technologies.</li>
+      <li>Design a phased rollout plan (3 months).</li>
+      <li>Identify one quick-win pilot project that would demonstrate immediate value.</li>
+    </ol>
+  </div>
+</section>
+
+
+
+<footer>
+  <div class="brand">D. LEARN</div>
+  <div class="tagline">Knowledge That Builds.</div>
+  <div class="flinks">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Grand Line</a>
+    <a href="bites.html">Treasures</a>
+    <a href="materials.html">Academy</a>
+    <a href="contact.html">Reach Out</a>
+  </div>
+  <div class="copy">&copy; 2026 D. Insights &middot; D. Learn &middot; All rights reserved</div>
+  <div style="text-align:center;padding:1rem 0;border-top:1px solid rgba(139,105,20,0.15);margin-top:1rem">
+    <span style="font-size:0.65rem;font-weight:700;letter-spacing:2px;color:#8B6914">D. INSIGHTS FAMILY</span><br>
+    <a  rel="noopener noreferrer"href="https://d-projects2026.github.io/dinsights/" style="color:#0D9488;font-size:0.75rem;font-weight:600;margin:0.3rem 0.8rem" target="_blank">D. Insights</a>
+    <a  rel="noopener noreferrer"href="https://d-projects2026.github.io/dprojects/" style="color:#0D9488;font-size:0.75rem;font-weight:600;margin:0.3rem 0.8rem" target="_blank">D. Projects</a>
+  </div>
+</footer>
+
+<script>
+const h=document.querySelector('.hamburger'),m=document.querySelector('.mobile-menu');
+if(h)h.addEventListener('click',()=>m.classList.toggle('open'));
+</script>
+</body></html>

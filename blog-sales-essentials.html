@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Sales Essentials: From Lead to Close &mdash; D. Learn</title>
+
+<style>
+:root {
+  --teal: #0D9488; --teal-dark: #0F766E; --teal-deep: #134E4A;
+  --teal-light: #14B8A6; --teal-pale: #CCFBF1; --teal-bg: #F0FDFA;
+  --wood: #8B6914; --wood-light: #A6842B; --wood-dark: #6B4F10;
+  --wood-pale: #F5ECD7; --wood-border: #E6D5A8; --wood-bg: #FBF7ED;
+  --bark: #5C3D0E; --bark-light: #7A5A28;
+  --sand: #FEF7E8; --sand-border: #F5E6C8;
+  --bg: #FAFCFC; --white: #FFFFFF;
+  --dark: #1E293B; --dark2: #334155;
+  --gold: #C6A96A; --gold-light: #D4BC85;
+  --gray: #64748B; --gray-light: #94A3B8; --gray-pale: #CBD5E1;
+  --border: #E2E8F0;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.08);
+  --red: #B23026; --green: #2D8B4E; --blue: #2A6496;
+  --orange: #C27A32; --purple: #6B4C8A;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--dark); line-height:1.7; overflow-x:hidden; }
+a { color:var(--teal); text-decoration:none; }
+::selection { background:var(--teal-pale); color:var(--dark); }
+
+@media(max-width:768px){   }
+.shape { position:absolute; pointer-events:none; opacity:0.07; font-size:3rem; user-select:none; z-index:0; }
+.wood-divider {
+  height:4px; background:linear-gradient(90deg, transparent 0%, var(--wood-border) 15%, var(--wood) 50%, var(--wood-border) 85%, transparent 100%);
+  margin:0; border:none;
+}
+footer { background:linear-gradient(180deg, var(--bark) 0%, var(--wood-dark) 100%); text-align:center; padding:2.5rem 2rem; }
+footer .brand { font-size:1rem; font-weight:700; letter-spacing:4px; color:var(--wood-pale); margin-bottom:0.3rem; }
+footer .tagline { color:var(--wood-light); font-style:italic; font-size:0.82rem; margin-bottom:1rem; }
+footer .flinks { margin-bottom:1rem; }
+footer .flinks a { color:var(--wood-border); text-decoration:none; font-size:0.72rem; letter-spacing:1px; margin:0 0.7rem; transition:color 0.3s; }
+footer .flinks a:hover { color:var(--white); }
+footer .copy { font-size:0.62rem; color:rgba(255,255,255,0.35); }
+.art-hero{padding:5rem 2rem 2.5rem;text-align:center;background:linear-gradient(170deg,var(--wood-bg) 0%,var(--teal-bg) 100%);position:relative;overflow:hidden}
+.art-hero .badge{display:inline-block;padding:0.2rem 0.8rem;border-radius:20px;font-size:0.6rem;font-weight:700;letter-spacing:1.5px;color:white;margin-bottom:0.8rem}
+.art-hero h1{font-size:1.7rem;font-weight:800;color:var(--bark);max-width:600px;margin:0 auto 0.5rem}
+.art-hero .art-story{font-style:italic;color:var(--wood);font-size:0.88rem;max-width:500px;margin:0 auto 0.5rem;line-height:1.7}
+.art-hero p{color:var(--gray);font-size:0.85rem;max-width:500px;margin:0 auto}
+.art-hero .meta{margin-top:0.8rem;font-size:0.75rem;color:var(--gray-light);display:flex;justify-content:center;gap:1.2rem}
+.art-body{max-width:760px;margin:2rem auto;padding:0 2rem}
+.art-section{margin-bottom:2.2rem}
+.art-section h2{font-size:1.08rem;font-weight:700;color:var(--dark);margin-bottom:0.6rem;padding-bottom:0.3rem;border-bottom:2px solid var(--wood-pale)}
+.art-para{color:var(--gray);font-size:0.88rem;line-height:1.9}
+.art-step{display:flex;gap:0.8rem;margin:0.7rem 0}
+.art-sn{min-width:26px;height:26px;border-radius:50%;background:var(--purple);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.7rem;flex-shrink:0;margin-top:0.15rem}
+.art-step h4{font-size:0.85rem;font-weight:600;color:var(--dark);margin-bottom:0.1rem}
+.art-step p{font-size:0.8rem;color:var(--gray);line-height:1.7}
+.art-tip{background:var(--wood-bg);border-left:3px solid var(--purple);padding:0.8rem 1rem;border-radius:0 10px 10px 0;margin-top:0.8rem}
+.art-tip .tl{font-size:0.65rem;font-weight:700;letter-spacing:1.5px;color:var(--purple);margin-bottom:0.2rem}
+.art-tip p{font-size:0.8rem;color:var(--gray);line-height:1.7}
+.art-bottom{text-align:center;padding:2rem 0;margin-top:1rem;border-top:2px solid var(--wood-pale)}
+.art-bottom a{color:var(--teal);font-weight:600;font-size:0.88rem}
+.art-bite-cta{background:var(--sand);border:2px solid var(--wood-border);border-radius:14px;padding:1.2rem 1.5rem;text-align:center;margin:1.5rem 0}
+.art-bite-cta p{font-size:0.82rem;color:var(--dark2)}
+.art-bite-cta a{color:var(--teal);font-weight:600}
+
+/* === FOOTER === */
+footer{text-align:center;padding:3rem 2rem;background:#134E4A;color:#fff}
+footer .brand{font-size:1.2rem;font-weight:800;letter-spacing:4px;color:#C6A96A}
+footer .tagline{font-size:0.75rem;color:rgba(255,255,255,0.7);margin:0.5rem 0 1.5rem}
+footer .flinks{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+footer .flinks a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.72rem;letter-spacing:1px;transition:color 0.2s}
+footer .flinks a:hover{color:#C6A96A}
+footer .copy{font-size:0.65rem;color:rgba(255,255,255,0.4)}
+
+@media(min-width:769px){}
+
+/* === NAV (canonical) === */
+.nav { position:sticky; top:0; z-index:100; background:rgba(251,247,237,0.95); backdrop-filter:blur(14px); border-bottom:2px solid var(--wood-border); padding:0.6rem 2rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+.nav-logo { display:flex; align-items:center; gap:0.65rem; text-decoration:none; flex-shrink:0; }
+.nav-logo .logo-wrap { width:42px; height:42px; border-radius:10px; background:transparent; display:flex; align-items:center; justify-content:center; overflow:hidden; flex-shrink:0; border:2px solid var(--wood-border); }
+.nav-logo .logo-wrap img { height:34px; width:34px; object-fit:contain; }
+.nav-logo .brand { display:flex; flex-direction:column; }
+.nav-logo .brand-name { font-size:1.05rem; font-weight:800; color:var(--bark); letter-spacing:1.5px; line-height:1.15; }
+.nav-logo .brand-sub { font-size:0.52rem; color:var(--wood-light); letter-spacing:0.6px; font-weight:500; line-height:1.2; }
+.nav-links { display:flex; gap:1.6rem; align-items:center; }
+.nav-links a { color:var(--bark-light); text-decoration:none; font-size:0.76rem; font-weight:600; letter-spacing:1.2px; transition:all 0.3s; padding:0.3rem 0; position:relative; }
+.nav-links a::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--teal); border-radius:1px; transform:scaleX(0); transition:transform 0.3s; }
+.nav-links a:hover { color:var(--teal); }
+.nav-links a:hover::after { transform:scaleX(1); }
+.nav-links a.active { color:var(--teal); }
+.nav-links a.active::after { transform:scaleX(1); }
+.nav-links a.nav-cta { background:var(--teal); color:#fff!important; padding:0.4rem 1rem; border-radius:6px; font-size:0.7rem; font-weight:700; letter-spacing:1px; }
+.nav-links a.nav-cta::after { display:none; }
+.hamburger { display:none; cursor:pointer; background:none; border:none; flex-direction:column; gap:5px; padding:6px; }
+.hamburger span { display:block; width:22px; height:2px; background:var(--bark); border-radius:1px; }
+.mobile-menu { display:none; position:fixed; top:56px; left:0; right:0; background:rgba(251,247,237,0.98); backdrop-filter:blur(12px); border-bottom:2px solid var(--wood-border); padding:1rem 2rem; z-index:99; flex-direction:column; gap:0.5rem; }
+.mobile-menu.open { display:flex; }
+.mobile-menu a { color:var(--dark); text-decoration:none; font-size:0.88rem; padding:0.6rem 0; border-bottom:1px solid var(--wood-pale); font-weight:500; }
+@media(max-width:768px){.hamburger:focus{outline:2px solid var(--gold, #C6A96A);outline-offset:2px} .hamburger{display:flex} .nav-links{display:none} }
+@media(min-width:769px){.mobile-menu,.mob-menu{display:none!important}}
+
+/* DYNAMIC PATH NAVIGATOR */
+.path-nav{max-width:800px;margin:2rem auto;padding:0 1.5rem}
+.path-class-bar{display:flex;align-items:center;gap:0.6rem;padding:0.8rem 1rem;background:linear-gradient(135deg,#F0FDFA,#FBF7ED);border:1px solid #E6D5A8;border-radius:10px 10px 0 0;cursor:default}
+.path-class-icon{font-size:1.3rem}
+.path-class-info{flex:1}
+.path-class-name{font-size:0.82rem;font-weight:700;letter-spacing:1px}
+.path-class-domain{font-size:0.7rem;color:#64748B}
+.path-class-link{font-size:0.72rem;font-weight:600;color:#0D9488;text-decoration:none;padding:0.3rem 0.8rem;border:1px solid #0D9488;border-radius:4px;white-space:nowrap;transition:all 0.3s}
+.path-class-link:hover{background:#0D9488;color:#fff}
+.path-progress{height:3px;background:#E2E8F0}
+.path-progress-fill{height:100%;transition:width 0.4s}
+.path-arrows{display:flex;border:1px solid #E6D5A8;border-top:none;border-radius:0 0 10px 10px;overflow:hidden}
+.path-arrow{flex:1;display:flex;align-items:center;gap:0.5rem;padding:0.8rem 1rem;text-decoration:none;color:#1E293B;font-size:0.8rem;transition:background 0.2s;background:#FAFCFC}
+.path-arrow:hover{background:#F0FDFA}
+.path-arrow.prev{justify-content:flex-start;border-right:1px solid #E6D5A8}
+.path-arrow.next{justify-content:flex-end;text-align:right}
+.path-arrow .arrow-icon{font-size:1.1rem;flex-shrink:0}
+.path-arrow .arrow-label{font-size:0.65rem;font-weight:600;letter-spacing:1px;color:#64748B;text-transform:uppercase}
+.path-arrow .arrow-title{font-size:0.78rem;font-weight:600}
+.path-arrow.disabled{opacity:0.35;pointer-events:none}
+.path-counter{text-align:center;font-size:0.68rem;color:#64748B;padding:0.3rem 0;letter-spacing:0.5px}
+@media(max-width:600px){
+  .path-arrows{flex-direction:column}
+  .path-arrow.prev{border-right:none;border-bottom:1px solid #E6D5A8}
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head><body>
+<nav class="nav">
+  <a class="nav-logo" href="index.html">
+    <div class="logo-wrap"><img src="data:image/jpeg;base64,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" alt="D. Learn"></div>
+    <div class="brand"><span class="brand-name">D. LEARN</span><span class="brand-sub">D. Insights Freedom Platform</span></div>
+  </a>
+  <div class="nav-links">
+      <a href="index.html">HOME</a>
+      <a href="blog.html">GRAND LINE</a>
+      <a href="bites.html">TREASURES</a>
+      <a href="materials.html">ACADEMY</a>
+      <a href="contact.html" class="nav-cta">REACH OUT</a>
+  </div>
+  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="blog.html">Grand Line</a>
+  <a href="bites.html">Treasures</a>
+  <a href="materials.html">Academy</a>
+  <a href="contact.html" class="mob-cta">Reach Out</a>
+</div>
+<div class="art-hero">
+  <div class="badge" style="background:#2D8B4E">SALES</div>
+  <h1>Sales Essentials: From Lead to Close</h1>
+  <div class="art-story">The art of the deal — not manipulation, but genuine connection that creates value for both sides.</div>
+  <p>A practical guide to selling with confidence, building trust, and closing deals ethically.</p>
+  <div class="meta"><span>&#9201; 11 min read</span><span>&#10003; FREE</span></div>
+</div>
+<hr class="wood-divider">
+<div class="art-body">
+<div class="art-section"><h2>Sales Is Not a Dirty Word</h2><div class="art-para">Many small business owners feel uncomfortable selling. They think of pushy salespeople and aggressive tactics. But real sales is about solving problems. When a customer needs what you offer, helping them buy is a service, not a trick. The best salespeople are curious listeners who ask great questions, understand needs deeply, and present solutions honestly. If you believe in your product, selling it is simply sharing that belief with people who need it.</div><div class="art-tip"><div class="tl">&#128161; PRO TIP</div><p>Shift your mindset from 'I need to sell this' to 'I need to find out if this is right for them.' The conversation changes completely.</p></div></div><div class="art-section"><h2>The Sales Pipeline: Understanding the Flow</h2><div class="art-step"><div class="art-sn">1</div><div><h4>Lead Generation</h4><p>Finding potential customers. This comes from referrals, social media, walk-ins, networking events, online inquiries, or partnerships. Cast a wide net but know your ideal customer profile.</p></div></div><div class="art-step"><div class="art-sn">2</div><div><h4>Qualification</h4><p>Not every lead is a good fit. Qualify by asking: Do they have the problem you solve? Can they afford your solution? Are they ready to act? This saves you time and them frustration.</p></div></div><div class="art-step"><div class="art-sn">3</div><div><h4>Presentation</h4><p>Show how your product or service solves their specific problem. Focus on benefits, not features. They do not care that your paint has nano-particles — they care that it lasts 10 years without fading.</p></div></div><div class="art-step"><div class="art-sn">4</div><div><h4>Handling Objections</h4><p>Objections are not rejections — they are requests for more information. 'Too expensive' means 'I do not see the value yet.' Address the underlying concern, not just the surface words.</p></div></div><div class="art-step"><div class="art-sn">5</div><div><h4>Closing</h4><p>Ask for the sale. Many deals are lost because no one asked. A simple 'Would you like to go ahead?' or 'Shall I prepare the order?' is often all it takes.</p></div></div><div class="art-step"><div class="art-sn">6</div><div><h4>Follow-Up & Retention</h4><p>The sale is not over after payment. Follow up to ensure satisfaction, ask for referrals, and stay in touch. Repeat customers cost 5x less to acquire than new ones.</p></div></div></div><div class="art-section"><h2>Pricing Psychology</h2><div class="art-para">How you present a price matters as much as the price itself. Anchoring works: show a higher option first, then present your target option — it feels like a deal. Bundle products to increase perceived value. Use specific numbers (497 instead of 500) for smaller purchases — specificity implies precision and fairness. For services, present three tiers (basic, standard, premium) — most people choose the middle option. Never apologize for your price. If your product delivers value, the price is justified.</div><div class="art-tip"><div class="tl">&#128161; PRO TIP</div><p>When a customer says your price is too high, ask: 'Compared to what?' Their answer reveals their real benchmark and your real competitor.</p></div></div><div class="art-section"><h2>Building Long-Term Relationships</h2><div class="art-para">The most profitable businesses are built on repeat customers and referrals, not one-time transactions. Send a thank-you message after every purchase. Remember personal details — their children's names, their favorite products, their business challenges. Create a loyalty program, even a simple one. Share valuable content they can use even when they are not buying. When a customer trusts you, they stop comparing prices and start sending friends. That is the ultimate sales advantage — and no competitor can replicate it.</div><div class="art-tip"><div class="tl">&#128161; PRO TIP</div><p>Keep a simple CRM — even a notebook — where you record customer interactions. Review it before every follow-up call.</p></div></div>
+
+<div id="pathNavContainer"></div>
+<div id="relatedClassesContainer"></div>
+<script>
+const ARTICLE_CLASSES = [];
+const ARTICLE_SLUG = "blog-sales-essentials.html";
+
+function renderPathNav() {
+  var pnc = document.getElementById('pathNavContainer');
+  var rcc = document.getElementById('relatedClassesContainer');
+  if (rcc) rcc.innerHTML = '';
+
+  if (!ARTICLE_CLASSES.length) {
+    pnc.innerHTML = '<div class="path-nav"><div class="path-class-bar" style="border-radius:10px"><span class="path-class-icon">\ud83e\udded</span><div class="path-class-info"><div class="path-class-name" style="color:#0D9488">Grand Line</div><div class="path-class-domain">Explore all articles and class paths</div></div><a href="blog.html" class="path-class-link">Browse Classes</a></div></div>';
+    return;
+  }
+
+  var c = ARTICLE_CLASSES[0];
+  var pct = ((c.index + 1) / c.total * 100).toFixed(0);
+
+  var prevHtml = '';
+  if (c.prev) {
+    prevHtml = '<a class="path-arrow prev" href="' + c.prev.slug + '"><span class="arrow-icon">&#8592;</span><div><div class="arrow-label">Previous</div><div class="arrow-title">' + c.prev.title + '</div></div></a>';
+  } else {
+    prevHtml = '<span class="path-arrow prev disabled"><span class="arrow-icon">&#8592;</span><div><div class="arrow-label">Start of Path</div><div class="arrow-title">You\'re at the beginning</div></div></span>';
+  }
+
+  var nextHtml = '';
+  if (c.next) {
+    nextHtml = '<a class="path-arrow next" href="' + c.next.slug + '"><div><div class="arrow-label">Next</div><div class="arrow-title">' + c.next.title + '</div></div><span class="arrow-icon">&#8594;</span></a>';
+  } else {
+    nextHtml = '<a class="path-arrow next" href="blog.html?class=' + c.id + '"><div><div class="arrow-label">Path Complete!</div><div class="arrow-title">Return to Grand Line</div></div><span class="arrow-icon">&#127942;</span></a>';
+  }
+
+  pnc.innerHTML = '<div class="path-nav">' +
+    '<div class="path-class-bar"><span class="path-class-icon"><img src="' + (c.badgeImg || '') + '" style="width:28px;height:28px;border-radius:50%" alt=""></span>' +
+    '<div class="path-class-info"><div class="path-class-name" style="color:' + c.color + '">' + c.name + '</div>' +
+    '<div class="path-class-domain">' + c.domain + '</div></div>' +
+    '<a href="blog.html?class=' + c.id + '" class="path-class-link">Return to Class</a></div>' +
+    '<div class="path-progress"><div class="path-progress-fill" style="width:' + pct + '%;background:' + c.color + '"></div></div>' +
+    '<div class="path-counter">Article ' + (c.index + 1) + ' of ' + c.total + ' in this path</div>' +
+    '<div class="path-arrows">' + prevHtml + nextHtml + '</div></div>';
+}
+
+renderPathNav();
+</script>
+<section style="max-width:800px;margin:3rem auto;padding:2rem;background:linear-gradient(135deg,#F0FDFA,#FBF7ED);border:1.5px solid #E6D5A8;border-radius:16px">
+  <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1rem">
+    <span style="font-size:1.5rem">🔬</span>
+    <h2 style="font-size:1.3rem;font-weight:800;color:#134E4A;margin:0">Applied Practice</h2>
+  </div>
+  <div style="background:#fff;border-radius:12px;padding:1.5rem;margin-bottom:1rem;border:1px solid #CCFBF1">
+    <h3 style="font-size:1rem;font-weight:700;color:#0F766E;margin-bottom:0.5rem">📋 Mini Case Study</h3>
+    <p style="color:#334155;font-size:0.9rem;line-height:1.8;margin-bottom:0.5rem"><strong>Scenario:</strong> A B2B services firm is losing 60% of proposals at the final stage. They have great technical capability but clients keep choosing competitors. The sales team needs to apply Sales Essentials: From Lead to Close principles.</p>
+    <p style="color:#334155;font-size:0.9rem;line-height:1.8">Redesign the proposal and sales process using these principles to improve win rates.</p>
+  </div>
+  <div style="background:#fff;border-radius:12px;padding:1.5rem;border:1px solid #CCFBF1">
+    <h3 style="font-size:1rem;font-weight:700;color:#0F766E;margin-bottom:0.5rem">✅ Your Action Items</h3>
+    <ol style="color:#334155;font-size:0.9rem;line-height:2;padding-left:1.2rem">
+      <li>Audit the last 5 lost proposals to identify patterns.</li>
+      <li>Redesign the proposal template using these principles.</li>
+      <li>Create a follow-up sequence for the next 3 prospects.</li>
+    </ol>
+  </div>
+</section>
+
+
+
+<footer>
+  <div class="brand">D. LEARN</div>
+  <div class="tagline">Knowledge That Builds.</div>
+  <div class="flinks">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Grand Line</a>
+    <a href="bites.html">Treasures</a>
+    <a href="materials.html">Academy</a>
+    <a href="contact.html">Reach Out</a>
+  </div>
+  <div class="copy">&copy; 2026 D. Insights &middot; D. Learn &middot; All rights reserved</div>
+  <div style="text-align:center;padding:1rem 0;border-top:1px solid rgba(139,105,20,0.15);margin-top:1rem">
+    <span style="font-size:0.65rem;font-weight:700;letter-spacing:2px;color:#8B6914">D. INSIGHTS FAMILY</span><br>
+    <a  rel="noopener noreferrer"href="https://d-projects2026.github.io/dinsights/" style="color:#0D9488;font-size:0.75rem;font-weight:600;margin:0.3rem 0.8rem" target="_blank">D. Insights</a>
+    <a  rel="noopener noreferrer"href="https://d-projects2026.github.io/dprojects/" style="color:#0D9488;font-size:0.75rem;font-weight:600;margin:0.3rem 0.8rem" target="_blank">D. Projects</a>
+  </div>
+</footer>
+
+<script>
+const h=document.querySelector('.hamburger'),m=document.querySelector('.mobile-menu');
+if(h)h.addEventListener('click',()=>m.classList.toggle('open'));
+</script>
+</body></html>
